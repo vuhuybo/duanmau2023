@@ -1,0 +1,284 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+
+}
+.container{
+    width: 70%;
+    margin: auto;
+    background-color: #f0f0f0;
+}
+.mb{
+    margin-bottom: 40px;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    width: 100%;
+    background-color: #fff;
+}
+nav{
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav li{
+    list-style: none;
+    margin: 0 20px;
+}
+nav li a{
+    text-decoration: none;
+    font-size: 1vw;
+}
+nav li a:hover{
+    color: #855ff7;
+}
+.login{
+    display: flex;
+    align-items: center;
+}
+.login a{
+    text-decoration: none;
+    font-size: 1vw;
+    margin-right: 20px;
+}
+.login a:hover{
+    color: #855ff7;
+}
+.cart i:hover{
+    color: #855ff7;
+}
+.slide{
+    width: 100%;
+    margin-top: 20px;
+    position: relative;
+}
+.btn_slide-right{
+    position: absolute;
+    top: 50%;
+    font-size: 50px;
+    border: none;
+    right: 10%;
+    transform: translateY(-50%);
+    background: none;
+}
+.btn_slide-left{
+    position: absolute;
+    top: 50%;
+    font-size: 50px;
+    border: none;
+    left: 10%;
+    transform: translateY(-50%);
+    background: none;
+}
+.slide i{
+    color: white;
+    
+}
+.slide img{
+    width: 80%;
+    margin: auto;
+    display: flex;
+   
+}
+.list{
+    width: 100%;
+    background-color: #f0f0f0;
+}
+.listsp{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.pro{
+    width: 20%;
+    text-align: center;
+    position: relative;
+}
+
+.list h1{
+    font-size: 3vw;
+    margin-top: 30px;
+}
+.pro img{
+    width: 100%;
+}
+.img{
+    position: relative;
+    width: 100%;
+    overflow:hidden;
+}
+@keyframes quick{
+    from{
+        bottom: -50px;
+    }to{
+        bottom: 0;
+    }
+}
+.quickview{
+    position: absolute;
+    bottom: 0px;
+    display: flex;
+    width: 100%;
+    height: 40px;
+    background-color: rgb(45, 44, 44);
+    color: white;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1vw;
+    opacity: 0;
+}
+.pro:hover .quickview{
+    opacity: 1;
+    animation: quick ease 0.3s ;
+    cursor: pointer;
+}
+.name{
+    display: block;
+    text-decoration: none;
+    font-size: 1.2vw;
+    font-weight: 500;
+    margin: 10px 10px;
+
+    
+}
+.price{
+    margin-bottom: 10px;
+}
+@keyframes addbtn {
+    from{
+        transform: scale(0.9);
+    }to{
+        transform: scale(1);
+    }
+}
+.add_btn{
+    display: flex;
+    height: 50px;
+    width: 70%;
+    background-color: #6e3ffb;
+    text-decoration: none;
+    align-items: center;
+    color: white;
+    font-size: 1vw;
+    justify-content: center;
+    margin: auto;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.pro:hover .add_btn{
+    opacity: 1;
+    animation: addbtn ease 0.3s;
+}
+.add_btn:hover{
+    background-color: #855ff7;
+}
+.btn_more{
+    display: flex;
+    height: 50px;
+    width: 300px;
+    background-color: #6e3ffb;
+    align-items: center;
+    font-size: 1vw;
+    justify-content: center;
+    margin: 30px auto;
+}
+.btn_more a{
+    color: white;
+    text-decoration: none;
+}
+.modal{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: none ;
+}
+.overlay{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: -99;
+}
+.modal_content{
+    margin: auto;
+    width: 50%;
+    height: 70%;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 20px;
+    position: relative;
+}
+.modal_content img{
+    width: 50%;
+    height: 80%;
+    align-self: center;
+    position: relative;
+}
+.detail_pro{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    /* padding-bottom: 80px; */
+}
+
+.namedetail{
+    font-size: 1.5vw;
+}
+.pricedetail{
+    color: red;
+    font-weight:500;
+    margin: 5px 0;
+}
+.dungluong{
+    font-size: 1vw;
+}
+.description_pro{
+    margin: 10px 0;
+    width: 80%;
+}
+.description_pro p{
+    font-size: 1vw;
+    margin-bottom: 5px;
+}
+.description_pro table{
+    border: gray solid 0.3px;
+    border-radius: 10px;
+}
+.description_pro tr{
+    width: 50%;
+    height: 50px;
+}
+.description_pro td{
+    padding: 5px;
+    color: rgb(71, 71, 71);
+}
+.tr{
+    background-color: rgb(227, 227, 227);
+}
+.color p{
+    font-size: 1vw;
+}
+.color select{
+    height: 30px;
+    width: 200px;
+    border-radius: 10px;
+}
+.close{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+.close:hover{
+    opacity: 0.5;
+}
