@@ -1,37 +1,32 @@
-<?php
-<?php
-function loadall_sanpham_home(){
-    $sql="select * from sanpham where 1 order by id desc limit 0,9";
-    $listsanpham=pdo_query($sql);
-    return  $listsanpham;
-}
-function loadall_sanpham_top10(){
-    $sql="select * from sanpham where 1 order by luotxem desc limit 0,10";
-    $listsanpham=pdo_query($sql);
-    return $listsanpham;
-}
-function loadall_sanpham($keyw="",$iddm=0){
-    $sql="select * from sanpham where 1";
-    // where 1 tức là nó đúng
-    if($keyw!=""){
-        $sql.=" and name like '%".$keyw."%'";
+<?php 
+    function loadall_sp(){
+        $sql = 'SELECT * from sanmpham where 1 order by iddm desc';
+        $result = pdo_query($sql);
+        return $result;
     }
-    if($iddm>0){
-        $sql.=" and iddm ='".$iddm."'";
+    function load_sp_dm($keyw='',$iddm = 0){
+        $sql = 'SELECT * from sanpham where 1 and ';
+        if(!empty($keyw)){
+            $sql .= "name like '%".$keyw."'";
+        }
+        if($iddm!=0){
+            $sql .= "iddm =".$iddm;
+        }
+        $sql .= "order by id desc";
+        $result = pdo_query($sql);
+        return $result;
     }
-    $sql.=" order by id desc";
-    $listsanpham=pdo_query($sql);
-    return  $listsanpham;
-}
-
-// 
-function loadone_sanpham($id){
-    $sql = "select * from sanpham where id = $id";
-    $result = pdo_query_one($sql);
-    return $result;
-}
-function load_sanpham_cungloai($id, $iddm){
-    $sql = "select * from sanpham where iddm = $iddm and id <> $id";
-    $result = pdo_query($sql);
-    return $result;
-}
+    function load_5sp_popular($iddm){
+        $sql = "SELECT * from sanpham where 1 ";
+        if($iddm != 0){
+            $sql .= " and iddm = ". $iddm ; 
+        }
+        $sql .= "order by luotxem limit 0,5";
+        $result = pdo_query($sql);
+        return $result;
+    }
+    function load_1sp($id){
+        $sql = 'SELECT * from sanpham where 1 and id= '. $id;
+        $result = pdo_query($sql);
+        return $result;
+    }

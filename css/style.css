@@ -485,3 +485,34 @@ nav li a:hover{
     font-weight: 700;
     margin-bottom: 10px;
 }
+/* bảng sản phẩm của admin */
+
+.table_pro_admin{
+    border: 1px gray solid;
+    margin: auto;
+}
+.table_pro_admin td{
+    padding: 10px;
+    border: 1px solid gray;
+    text-align: center;
+}
+.btn_add-admin{
+    background-color: rgb(2, 232, 113);
+    font-size: 18px;
+    border: 1px solid  rgb(2, 232, 113);
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+}
+.btn_dele-admin{
+    background-color: red;
+    font-size: 18px;
+    border: 1px solid  red;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+}
+.btn_dele-admin:hover , .btn_add-admin:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}
