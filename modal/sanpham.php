@@ -18,15 +18,16 @@
     }
     function load_5sp_popular($iddm){
         $sql = "SELECT * from sanpham where 1 ";
-        if($iddm != 0){
+        if($iddm > 0){
             $sql .= " and iddm = ". $iddm ; 
         }
-        $sql .= "order by luotxem limit 0,5";
+        $sql .= " order by luotxem desc limit 0,5";
         $result = pdo_query($sql);
         return $result;
     }
+    
     function load_1sp($id){
         $sql = 'SELECT * from sanpham where 1 and id= '. $id;
-        $result = pdo_query($sql);
+        $result = pdo_query_one($sql);
         return $result;
     }

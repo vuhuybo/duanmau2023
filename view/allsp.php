@@ -1,3 +1,4 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <div class="list mb">
             <h1 class="mb">Tất cả sản phẩm</h1>
         <div class="listsp">
@@ -7,7 +8,7 @@
                             <img src="access/img/<?php echo $img?>" alt="">
                             <div class="quickview" onclick="detail_pro()">Quick view</div>
                     </div>
-                        <a href=" " class="name"><?php echo $name ?></a>
+                        <a href=" " class="name" ><?php echo $name ?></a>
                         <div class="price"><?php echo $price ?></div>
                         <a href="" class="add_btn">Add to cart</a>
                 </div>

@@ -11,14 +11,6 @@ function pdo_get_connection(){
         echo "Connection failed: " . $e->getMessage();
     }
 }
-function pfo_execute($sql){
-    $sql_arg = array_slice(func_get_args(),1);
-    try{
-        $conn = pdo_get_connection();
-        $conn = $conn -> prepare($sql);
-
-    }
-}
 function pdo_execute($sql){
     $sql_args=array_slice(func_get_args(),1);
     try{

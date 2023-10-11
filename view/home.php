@@ -17,7 +17,7 @@
                 <div class="pro">
                     <div class="img">
                             <img src="access/img/<?php echo $img?>" alt="">
-                            <div class="quickview" onclick="detail_pro()">Quick view</div>
+                            <div class="quickview"  onclick="detail_pro(<?php echo $id ?>)">Quick view</div>
                     </div>
                         <a href="<?php echo $linksp?> " class="name"><?php echo $name ?></a>
                         <div class="price"><?php echo $price ?></div>
@@ -43,7 +43,7 @@
                 <div class="pro">
                         <div class="img">
                             <img src="access/img/<?php echo $img?>" alt="">
-                            <div class="quickview" onclick="detail_pro()">Quick view</div>
+                            <div class="quickview" onclick="detail_pro(<?php echo $id ?>)">Quick view</div>
                         </div>
                         <a href=" " class="name"><?php echo $name ?></a>
                         <div class="price"><?php echo $price ?></div>
@@ -51,13 +51,14 @@
                 </div>
             <?php endforeach ?>
                 <div class="btn_more"><a href="">More Mobile Phone</a></div>
+            </div>
             <h1 class="mb">Top 5 tablet nổi bật</h1>
         <div class="listsp">
             <?php foreach($listtablet_popular as $pro): extract($pro) ?>
                 <div class="pro">
                         <div class="img">
                             <img src="access/img/<?php echo $img?>" alt="">
-                            <div class="quickview" onclick="detail_pro()">Quick view</div>
+                            <div class="quickview" onclick="detail_pro(<?php echo $id ?>)">Quick view</div>
                         </div>
                         <a href=" " class="name"><?php echo $name ?></a>
                         <div class="price"><?php echo $price ?></div>
@@ -66,7 +67,6 @@
             <?php endforeach ?>    
                 <div class="btn_more"><a href="">More Mobile Phone</a></div>
             </div>
-        </div>
 
     </div>
     <div class="modal">
@@ -77,7 +77,7 @@
             </div>
             <img src="access/img/iphone-12-pro-max-xanh-duong-new-600x600-200x200-1.jpg" alt="">
             <div class="detail_pro">
-                <div class="namedetail mb50">Iphone 12 pro max</div>
+                <div class="namedetail mb50">ss</div>
                 <div class="pricedetail mb50">1000$</div>
                 <div class="dungluong mb50"> Dung lượng: 128GB</div>
                 <div class="description_pro mb50">
