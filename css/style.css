@@ -516,3 +516,9 @@ nav li a:hover{
     opacity: 0.6;
     cursor: pointer;
 }
+.item_input{
+    background-color: rgb(255, 127, 153);
+    display: flex;
+    align-self: center;
+    margin-left: 20px;
+}

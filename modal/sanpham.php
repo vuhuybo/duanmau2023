@@ -1,6 +1,6 @@
 <?php 
     function loadall_sp(){
-        $sql = 'SELECT * from sanmpham where 1 order by iddm desc';
+        $sql = 'SELECT * from sanpham where 1 order by iddm desc';
         $result = pdo_query($sql);
         return $result;
     }
@@ -30,4 +30,9 @@
         $sql = 'SELECT * from sanpham where 1 and id= '. $id;
         $result = pdo_query_one($sql);
         return $result;
+    }
+    function add_sp($name , $price , $img , $mota , $iddm){
+        $sql = "INSERT INTO `sanpham`( `name`, `price`, `img`, `mota`, `luotxem`, `iddm`)
+        VALUE ('$name','$price','$img','$mota','$iddm')";
+        pdo_execute($sql);
     }

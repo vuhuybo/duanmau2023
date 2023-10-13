@@ -1,5 +1,5 @@
 var album=[];
-for(var i=0;i<4;i++){
+for(var i=0;i<5;i++){
     album[i]=new Image();
     album[i].src="./access/img/slide"+i+".jpg";
 }
@@ -7,7 +7,7 @@ for(var i=0;i<4;i++){
 index=0;
 function slideshow(){
     index++;
-    if(index>3){
+    if(index>4){
         index=0;
     }
     document.getElementById("banner").src=album[index].src;
@@ -16,7 +16,7 @@ function slideshow(){
 }
 function next(){
     index++;
-    if(index>3){
+    if(index>4){
         index=0;
     }
     document.getElementById("banner").src=album[index].src;
@@ -25,7 +25,7 @@ function next(){
 function pre(){
     index--;
     if(index<0){
-        index=3;
+        index=4;
     }
     document.getElementById("banner").src=album[index].src;
    
