@@ -1,4 +1,8 @@
 <?php 
+    if(isset($_GET['id']) && $_GET['id'] != ''){
+        $idsp = $_GET['id'];
+        $pro = load_1sp($idsp);
+    }
     $error = [];
     if(isset($_GET['name']) && $_GET['name'] == 'chuc'){
         if(isset($_POST['name']) && $_POST['name'] !== ''){
@@ -47,27 +51,26 @@
             $error['no_file'] = 'chưa chọn file';
         }
         if(empty($error)){
-            add_sp($name, $price ,$new_file,$mota,$iddm);
-            echo '<div style="text-align: center; color: red; " class="div">thêm sản phẩm thành công</div>';
+            edit_sp($idsp, $name, $price ,$new_file,$mota,$iddm);
         }
     }
           
 ?>
-<h1 style="text-align: center; margin: 10px 0;">Thêm sản phẩm mới</h1>
-<form action="index.php?act=themsp&name=chuc" method="post" enctype="multipart/form-data">
+<h1 style="text-align: center; margin: 10px 0;">Sửa sản phẩm </h1>
+<form action="index.php?act=editsp&name=chuc&id=<?php echo $idsp ?>" method="post" enctype="multipart/form-data">
     <div class="item_input">
         <label for="">Tên sản phẩm</label>
-        <input type="text" name="name">
+        <input type="text" name="name" value="<?php echo $pro['name'] ?>">
     </div>
     <div class="error"><?php if(isset($error['user']) && $error['user'] !== '' ){ echo $error['user']; } ?></div>
     <div class="item_input">
         <label for="">Giá sản phẩm</label>
-        <input type="number" min="0" name="gia_sp">
+        <input type="number" min="0" name="gia_sp" value="<?php echo $pro['price'] ?>">
     </div>
     <div class="error"><?php if(isset($error['price']) && $error['price'] !== '' ){ echo $error['price']; } ?></div>
     <div class="item_input">
         <label for="">Mô tả sản phẩm</label>
-        <input type="text" name="description_sp">
+        <textarea cols="50" rows="8" type="" name="description_sp" value="<?php echo $pro['mota'] ?>"><?php echo $pro['mota'] ?></textarea>
     </div>
     <div class="error"><?php if(isset($error['discription']) && $error['discription'] !== '' ){ echo $error['discription']; } ?></div>
     <div class="item_input">
@@ -82,7 +85,7 @@
     <div class="error"><?php if(isset($error['iddm']) && $error['iddm'] !== '' ){ echo $error['iddm']; } ?></div>
     <div class="item_input">
         <label for="">Ảnh</label>
-        <input type="file" name="img">
+        <input type="file" name="img" value="<?php echo $pro['img'] ?> ">
     </div>
     <div class="error">
         <?php 
@@ -96,13 +99,9 @@
         ?>
     </div>
     <div class="btn_form">
-        <input type="submit" value="Thêm">
-        <input type="reset" value="Nhập lại">
+        <input type="submit" value="Sửa">
     </div>
 </form>
-
+<div class="error"></div>
 <?php 
-    // if(empty($error)){
-    //     echo '<div class="div">thêm sản phẩm thành công</div>';
-    // }
 ?>

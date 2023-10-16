@@ -53,3 +53,10 @@ function undetail_pro(){
   function formatMoney(number) {
     return number.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
     }
+function xacnhan(){
+    var isconfirm = confirm("bạn muốn xóa sản phẩm không?");
+    console.log('123');
+    if(isconfirm){
+        document.querySelector('.btn_dele-admin').href = "delete/deletesp.php?id=<?php echo $id ?>";
+    }
+}

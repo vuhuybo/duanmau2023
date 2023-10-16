@@ -32,9 +32,16 @@ if(isset($_GET['act']) && $_GET['act']!= ''){
             }
             break;
         case 'themsp':
-            $listdm = load_dm();            
+            $listdm = load_dm();                       
             include 'add/themsp.php';
+            break;
+        case 'editsp':
+            $listdm = load_dm();
+            include 'edit/editsp.php';
+        case 'editdm':
+            include 'edit/editdm.php';
         }
+
 }else{
     $listsp = loadall_sp();
     include 'sanpham.php';

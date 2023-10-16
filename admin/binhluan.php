@@ -1,4 +1,7 @@
-<h1>Danh sách bình luận</h1>
+        <div class="subject_admin">
+            <h1>Danh sách bình luận</h1>
+            <a href="">ADD</a>
+        </div>
         <table class="table_pro_admin">
             <th>
                 <td>ID bình luận</td>
@@ -10,8 +13,8 @@
             <?php foreach($listbl as $bl): extract($bl) ?>
             <tr>
                 <td>
-                    <button class="btn_add-admin">add</button>
-                    <button class="btn_dele-admin">delete</button>
+                    <a href="" class="btn_add-admin">Sửa</a>
+                    <a href="" class="btn_dele-admin">delete</a>
                 </td>
                 <td> <?php echo $id ?></td>
                 <td><?php echo $noidung ?></td>

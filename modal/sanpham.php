@@ -32,7 +32,16 @@
         return $result;
     }
     function add_sp($name , $price , $img , $mota , $iddm){
-        $sql = "INSERT INTO `sanpham`( `name`, `price`, `img`, `mota`, `luotxem`, `iddm`)
+        $sql = "INSERT INTO `sanpham`( `name`, `price`, `img`, `mota`, `iddm`)
         VALUE ('$name','$price','$img','$mota','$iddm')";
+        pdo_execute($sql);
+    }
+    function edit_sp($id, $name , $price , $img , $mota , $iddm){
+        $sql = "UPDATE `sanpham` SET
+        `name`='$name',`price`='$price',`img`='$img',`mota`='$mota',`iddm`='$iddm' WHERE id=".$id;
+        pdo_execute($sql);
+    }
+    function delete_sp($id){
+        $sql = "DELETE FROM `sanpham` WHERE id=".$id;
         pdo_execute($sql);
     }
