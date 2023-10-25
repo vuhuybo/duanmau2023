@@ -85,3 +85,11 @@ $('.cart').on('click',function(){
     console.log('1');
     $('.overlay_cart').css('display','block');
 })
+function cart(){
+    var a = document.querySelector(".layout_cart");
+    a.style = "display:flex;";
+}
+function uncart(){
+    var a = document.querySelector(".layout_cart");
+    a.style = "display:none;";
+}

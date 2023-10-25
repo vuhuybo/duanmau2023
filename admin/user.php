@@ -1,4 +1,4 @@
-
+    <div>
         <div class="subject_admin">
             <h1>Danh sách người dùng</h1>
             <a href="">ADD</a>
@@ -12,6 +12,7 @@
                 <td>Address</td>
                 <td>Số điện thoại</td>
                 <td>Role</td>
+                <td>Name</td>
             </th>
             <?php foreach($listuser as $user): extract($user) ?>
             <tr>
@@ -26,6 +27,7 @@
                 <td><?php echo $address ?></td>
                 <td><?php echo $tel ?></td>
                 <td><?php echo $role ?></td>
+                <td><?php echo $name ?></td>
             </tr>
             <?php endforeach ?>
         </table>

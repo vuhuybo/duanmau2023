@@ -6,7 +6,6 @@ include '../modal/sanpham.php';
 include '../modal/user.php';
 include '../modal/danhmuc.php';
 include 'header.php';
-var_dump($_SESSION['role']);
 if($_SESSION['role'] != 1){
     header('location: ../view/login.php');
 }

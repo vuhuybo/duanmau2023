@@ -23,7 +23,7 @@
             </nav>
             <div class="login">
                 <a href="view/logout.php">Đăng xuất</a>
-                <div class="cart"><a href=""><i class="fa-solid fa-cart-shopping"></i></a></div>
+                <div class="cart" onclick="cart()"><i class="fa-solid fa-cart-shopping"></i></div>
             </div>
         </header>
        

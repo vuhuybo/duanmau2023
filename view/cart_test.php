@@ -26,8 +26,8 @@
                 <div class="cart"><i class="fa-solid fa-cart-shopping"></i></div>
             </div>
         </header>
-        <div class="overlay_cart">
-            <div class="layout_cart"></div>
+        <div class="layout_cart">
+            <div class="overlay_cart"></div>
             <div class="tab_cart">
                         <div class="title">
                             <i class="fa-solid fa-x"></i>
