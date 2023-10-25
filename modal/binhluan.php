@@ -9,8 +9,8 @@
         $result = pdo_query($sql);
         return $result;
     }
-    function add_bl($noidung , $iduser , $idpro , $ngaybinhluan){
-        $sql = "INSERT INTO 'binhluan'('noidung','iduser','idpro','ngaybinhluan')
+    function add_bl($noidung , $iduser = 1 , $idpro , $ngaybinhluan){
+        $sql = "INSERT INTO `binhluan`( `noidung`, `iduser`, `idpro`, `ngaybinhluan`)
         VALUES ('$noidung','$iduser','$idpro','$ngaybinhluan')";
         pdo_execute($sql);
     }

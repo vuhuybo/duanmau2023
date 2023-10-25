@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="css/fontawesome-free-6.4.2-web/fontawesome-free-6.4.2-web/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;0,700;1,300;1,500;1,700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="js/chuc.js"></script>
 </head>
 <body>
     <div class="container">
@@ -20,7 +22,8 @@
                 <li><a href="">Phụ kiện</a></li>
             </nav>
             <div class="login">
-                <a href="">Đăng nhập</a>
+                <a href="view/logout.php">Đăng xuất</a>
                 <div class="cart"><a href=""><i class="fa-solid fa-cart-shopping"></i></a></div>
             </div>
         </header>
+       

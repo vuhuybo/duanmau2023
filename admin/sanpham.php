@@ -1,6 +1,19 @@
         <div class="subject_admin">
             <h1>Danh sách sản phẩm</h1>
-            <a href="">ADD</a>
+            <a href="index.php?act=themsp">ADD</a>
+        </div>
+        <div style="margin: 20px 0;">
+            <form action="index.php?act=sanpham" method="post" class="form_search_sp">
+                <input type="text" name="keyw" placeholder="Nhập từ khóa">
+                <select name="iddm" id="" >
+                    <option value="0">Tất cả</option>
+                    <?php $listdm = load_dm(); foreach($listdm as $dm): extract($dm) ?>
+                    <option value="<?php echo $id ?>"><?php echo $name ?></option>
+                    <?php endforeach ?>
+                </select>
+                <input type="submit" value="Tìm kiếm">
+            </form>
+        </select>
         </div>
         <table class="table_pro_admin">
             <th>
@@ -16,7 +29,7 @@
             <tr>
                 <td>
                     <a href="index.php?act=editsp&id=<?php echo $id ?>" class="btn_add-admin">Sửa</a>
-                    <a href="#"  onclick="xacnhan()" class="btn_dele-admin">delete</a>
+                    <a class="btn_dele-admin xoasp" data-id="<?php echo $id ?>">delete</a>
                 </td>
                 <td> <?php echo $id ?></td>
                 <td><?php echo $name ?></td>

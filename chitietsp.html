@@ -25,14 +25,14 @@
         </header>
         <div class="boxsp">
             <div class="box_left">
-                <img class="img_box_left" src="access/img/13.jpeg" alt="">
+                <img class="img_box_left" src="upload/laptop1.jpg" alt="">
             </div>
-            <div class="box_right">
-                <p class="namesp_detail">IP 13 pro max</p>
+            <form class="box_right" method="post">
+                <p class="namesp_detail">IP 13 pro max là cái gì đó rất dài ở đây thì ra cái gì?</p>
                 <div class="pricesp_detail">$1000</div>
                 <div class="item">
                     <span>Màu sắc</span>
-                    <select name="" id="">
+                    <select name="color" id="">
                         <option value="red">Đỏ</option>
                         <option value="gray">Xám</option>
                         <option value="gold">Vàng</option>
@@ -40,44 +40,50 @@
                 </div>
                 <div class="item">
                     <span>Số lượng</span>  
-                    <input type="number" min="0" value="1">
+                    <input type="number" name="count" min="0" value="1">
                 </div>
                 <div class="item">
                     <span>Địa chỉ</span> 
-                    <input type="text">
+                    <input type="text" name="address">
                 </div>
                 <div class="item">
                     <span>Dung lượng</span>
-                    <button class="dungluong">128GB</button>
-                    <button class="dungluong">256GB</button>
-                    <button class="dungluong">520GB</button>
+                    <div class="radio">
+                        <input type="radio" name="dungluong" value="128GB"> <span>128GB</span> 
+                    </div>
+                    <div class="radio">
+                        <input type="radio" name="dungluong" value="256GB"> <span>256GB</span> 
+                    </div>
+                    <div class="radio">
+                        <input type="radio" name="dungluong" value="1TB"> <span>1TB</span>                    
+                    </div>
                 </div>
                 <div>
                     <button class="add_cart">Thêm vào giỏ hàng</button>
                     <button class="buy">Mua ngay</button>
                 </div>
-            <hr class="hr_sp">
-            <div class="sp_service">
-                <div class="item_sevice">
-                    <i class="fa-solid fa-arrow-rotate-left"></i>
-                    <p>Trả hàng trong 7 ngày</p>
+                <hr class="hr_sp">
+                <div class="sp_service">
+                    <div class="item_sevice">
+                        <i class="fa-solid fa-arrow-rotate-left"></i>
+                        <p>Trả hàng trong 7 ngày</p>
+                    </div>
+                    <div class="item_sevice">
+                        <i class="fa-solid fa-shield-heart"></i>
+                        <p>Hàng chính hãng 100%</p>
+                    </div>
+                    <div class="item_sevice">
+                        <i class="fa-solid fa-car-side"></i>
+                        <p>Miễn phí vận chuyển</p>
+                    </div>
                 </div>
-                <div class="item_sevice">
-                    <i class="fa-solid fa-shield-heart"></i>
-                    <p>Hàng chính hãng 100%</p>
+                <div class="share_sp">
+                    <p>Chia sẻ:</p>
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-facebook-messenger"></i>
                 </div>
-                <div class="item_sevice">
-                    <i class="fa-solid fa-car-side"></i>
-                    <p>Miễn phí vận chuyển</p>
-                </div>
-        </div>
-        <div class="share_sp">
-            <p>Chia sẻ:</p>
-            <i class="fa-brands fa-facebook"></i>
-            <i class="fa-brands fa-twitter"></i>
-            <i class="fa-brands fa-facebook-messenger"></i>
-        </div>
-        </div>
+            </form>
     </div>
     <div class="descriptione_sp">
         <p>MÔ TẢ SẢN PHẨM</p>
@@ -137,7 +143,10 @@
                 <div class="cmt_detail">Giao hàng nhanh, đóng gòi ổn</div>
             </div>
         </div>
-
+        <form action="#" method="post">
+                <input type="text" name="cmt" placeholder="Nhập bình luận của bạn">
+                <input type="submit" value="Bình luận">
+        </form>
         </div>
         <div class="goiy_sp">
             <p>Sản phẩm tương tự</p>

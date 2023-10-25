@@ -1,6 +1,6 @@
         <div class="subject_admin">
             <h1>Danh sách danh mục</h1>
-            <a href="">ADD</a>
+            <a href="index.php?act=themdm">ADD</a>
         </div>
         <table class="table_pro_admin">
             <th>
@@ -11,7 +11,7 @@
             <tr>
             <td>
                     <a href="index.php?act=editdm&id=<?php echo $id ?>" class="btn_add-admin">Sửa</a>
-                    <a href="" class="btn_dele-admin">delete</a>
+                    <a  class="btn_dele-admin xoadm" data-id = "<?php echo $id ?>" >delete</a>
                 </td>
                 <td> <?php echo $id ?></td>
                 <td><?php echo $name ?></td>

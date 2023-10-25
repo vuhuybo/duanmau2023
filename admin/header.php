@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="../js/chuc.js"></script>
 </head>
 <body>
@@ -17,6 +20,6 @@
                 <li><a href="<?php echo 'index.php?act=user' ?>">Danh sách người dùng</a></li>
             </nav>
             <div class="login">
-                <a href="">Đăng nhập</a>
+                <a href="../view/logout.php">Đăng xuất</a>
             </div>
         </header>

@@ -29,7 +29,7 @@
             $error['iddm'] = 'chưa nhập id danh mục';
         }
         
-        if(isset($_FILES['img']) && $_FILES['img'] !== ''){
+        if(isset($_FILES['img']) && $_FILES['img']['name'] != ''){
             $file = $_FILES['img'];
             $filename = $file['name'];
             $filename = explode('.',$filename);
@@ -48,14 +48,16 @@
                 $error['file_ext']  = 'file k hợp lệ';
             }
         }else{
-            $error['no_file'] = 'chưa chọn file';
+            $new_file = $pro['img'];
         }
         if(empty($error)){
             edit_sp($idsp, $name, $price ,$new_file,$mota,$iddm);
+            echo '<div style="text-align: center;">Sửa thành công</div>';
         }
     }
           
 ?>
+
 <h1 style="text-align: center; margin: 10px 0;">Sửa sản phẩm </h1>
 <form action="index.php?act=editsp&name=chuc&id=<?php echo $idsp ?>" method="post" enctype="multipart/form-data">
     <div class="item_input">
@@ -70,22 +72,31 @@
     <div class="error"><?php if(isset($error['price']) && $error['price'] !== '' ){ echo $error['price']; } ?></div>
     <div class="item_input">
         <label for="">Mô tả sản phẩm</label>
-        <textarea cols="50" rows="8" type="" name="description_sp" value="<?php echo $pro['mota'] ?>"><?php echo $pro['mota'] ?></textarea>
+        <textarea cols="40" rows="8" type="" name="description_sp" value="<?php echo $pro['mota'] ?>"><?php echo $pro['mota'] ?></textarea>
     </div>
     <div class="error"><?php if(isset($error['discription']) && $error['discription'] !== '' ){ echo $error['discription']; } ?></div>
     <div class="item_input">
         <label for="">Loại sản phẩm</label>
         <select name="iddm" id="" >
-            <option value=""></option>
-            <?php foreach($listdm as $dm): extract($dm) ?>
-            <option value="<?php echo $id ?>"><?php echo $name ?></option>
-            <?php endforeach ?>
+            <?php foreach($listdm as $dm){
+                extract($dm);
+                if($pro['iddm']== $id){
+                    echo '<option value="'.$id.'">'.$name.'</option>';
+                }
+            } ?>
+            <?php foreach($listdm as $dm){
+                extract($dm);
+                if($pro['iddm'] != $id){
+                    echo '<option value="'.$id.'">'.$name.'</option>';
+                }
+            } ?>
         </select> 
     </div>
     <div class="error"><?php if(isset($error['iddm']) && $error['iddm'] !== '' ){ echo $error['iddm']; } ?></div>
     <div class="item_input">
         <label for="">Ảnh</label>
-        <input type="file" name="img" value="<?php echo $pro['img'] ?> ">
+        <input type="file" name="img" value="">
+        <img src="<?php echo '../upload/'.$pro['img'] ?>" height="50px" alt="">
     </div>
     <div class="error">
         <?php 

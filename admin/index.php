@@ -1,15 +1,26 @@
 <?php
+session_start();
 include '../modal/pdo.php';
 include '../modal/binhluan.php';
 include '../modal/sanpham.php';
 include '../modal/user.php';
 include '../modal/danhmuc.php';
 include 'header.php';
+var_dump($_SESSION['role']);
+if($_SESSION['role'] != 1){
+    header('location: ../view/login.php');
+}
 if(isset($_GET['act']) && $_GET['act']!= ''){
     $act = $_GET['act'];
     switch($act){
         case 'sanpham':
-            $listsp = loadall_sp();
+            if( (isset($_POST['keyw'])) || (isset($_POST['iddm'])) ){
+                $keyw  = $_POST['keyw'];
+                $iddm = $_POST['iddm'];
+                $listsp = load_sp_dm($keyw,$iddm);
+            }else{
+                $listsp = loadall_sp();
+            }
             include 'sanpham.php';
             break;
         case 'binhluan':
@@ -38,9 +49,18 @@ if(isset($_GET['act']) && $_GET['act']!= ''){
         case 'editsp':
             $listdm = load_dm();
             include 'edit/editsp.php';
+            break;
         case 'editdm':
             include 'edit/editdm.php';
+            break;
+        case 'xoasp':
+            include 'delete/deletesp.php';
+            break;
+        case 'xoadm':
+            include 'delete/xoadm.php';
+            break;
         }
+        
 
 }else{
     $listsp = loadall_sp();

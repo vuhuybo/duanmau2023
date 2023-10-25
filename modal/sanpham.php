@@ -4,15 +4,15 @@
         $result = pdo_query($sql);
         return $result;
     }
-    function load_sp_dm($keyw='',$iddm = 0){
-        $sql = 'SELECT * from sanpham where 1 and ';
+    function load_sp_dm($keyw='',$iddm){
+        $sql = 'SELECT * from sanpham where 1';
         if(!empty($keyw)){
-            $sql .= "name like '%".$keyw."'";
+            $sql .= " and name like '%".$keyw."'";
         }
         if($iddm!=0){
-            $sql .= "iddm =".$iddm;
+            $sql .= " and iddm =".$iddm;
         }
-        $sql .= "order by id desc";
+        // $sql .= "order by id desc";
         $result = pdo_query($sql);
         return $result;
     }
@@ -45,3 +45,19 @@
         $sql = "DELETE FROM `sanpham` WHERE id=".$id;
         pdo_execute($sql);
     }
+    function count_view($view_count,$id){
+        $sql = "UPDATE sanpham SET luotxem = $view_count WHERE id = $id";
+        pdo_execute($sql);
+    }
+    function add_cart($idpro,$iduser){
+        $sql  = "INSERT INTO `cart`(`id_user`, `id_pro`) 
+        VALUES ('$iduser','$idpro')";
+        pdo_execute($sql);
+    }
+    function load_cart($iduser){
+        $sql = "SELECT * from cart as c INNER JOIN sanpham as b on c.id_pro = b.id where  c.id_user=$iduser";
+        $result = pdo_query($sql);
+        return $result;
+    }
+    
+    

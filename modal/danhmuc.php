@@ -17,3 +17,12 @@
         $sql = "UPDATE `danhmuc` SET `name`='$name' WHERE id= $id ";
         pdo_execute($sql);
     }
+    function xoa_dm($id){
+        $sql = "DELETE FROM `danhmuc` WHERE id=".$id;
+        pdo_execute($sql);
+    }
+    function count_id($id){
+        $sql = 'SELECT COUNT(iddm) from sanpham where iddm='.$id;
+        $result = pdo_query($sql);
+        return $result;
+    }
