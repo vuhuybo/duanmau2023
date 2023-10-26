@@ -58,7 +58,11 @@ if(isset($_GET['act']) && $_GET['act']!= ''){
         case 'xoadm':
             include 'delete/xoadm.php';
             break;
+        case 'xoacmt':
+            include 'delete/deletecmt.php';
+            break;
         }
+        
         
 
 }else{

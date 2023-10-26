@@ -1,33 +1,4 @@
-var album=[];
-for(var i=0;i<4;i++){
-    album[i]=new Image();
-    // album[i].src="/duan1/access/img/slide"+i+".jpg";
-}
- var interval=setInterval(slideshow,2000);
-index=0;
-function slideshow(){
-    index++;
-    if(index>3){
-        index=0;
-    }
-    // document.getElementById("banner").src=album[index].src;
-}
-function next(){
-    index++;
-    if(index>3){
-        index=0;
-    }
-    // document.getElementById("banner").src=album[index].src;
-   
-}
-function pre(){
-    index--;
-    if(index<0){
-        index=3;
-    }
-    // document.getElementById("banner").src=album[index].src;
-   
-}
+
 function detail_pro(id){
     document.querySelector(".modal").style = "display:flex;"
     var xmlhttp = new XMLHttpRequest();
@@ -82,8 +53,15 @@ $('.xoadm').on('click', function(){
           })
     })
 $('.cart').on('click',function(){
-    console.log('1');
-    $('.overlay_cart').css('display','block');
+    var pros = document.querySelectorAll('.cart-sp');
+    console.log(pros);
+    let totalprice = 0;
+    for(const pro of pros){
+        const count = pro.querySelector(".count_cart");
+        const price = pro.querySelector('.price_cart');
+        totalprice +=  parseInt(count.value) * parseInt(price.textContent);
+    }
+    document.querySelector(".total_price").textContent = totalprice;
 })
 function cart(){
     var a = document.querySelector(".layout_cart");
@@ -93,3 +71,30 @@ function uncart(){
     var a = document.querySelector(".layout_cart");
     a.style = "display:none;";
 }
+$('.count_cart').on('change',function(){
+    var pros = document.querySelectorAll('.cart-sp');
+    console.log(pros);
+    let totalprice = 0;
+    for(const pro of pros){
+        const count = pro.querySelector(".count_cart");
+        const price = pro.querySelector('.price_cart');
+        totalprice +=  parseInt(count.value) * parseInt(price.textContent);
+    }
+    document.querySelector(".total_price").textContent = totalprice;
+})
+$('.xoacmt').on('click', function(){
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.open('index.php?act=xoacmt&id=' + $(this).attr('data-id'))
+        }
+      })
+})
+

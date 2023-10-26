@@ -44,22 +44,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;0,700;1,300;1,500;1,700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
-<body>
-    <form action="login.php?act=login" method="post">
-        <div class="title">
-            <h1>Đăng nhập</h1>
-            <a href="signup.php">Đăng kí</a>
-        </div>
-        <div class="input_login">
-            <input type="text" name="username" require placeholder="Tài khoản">
-            <div class="err_login"><?php if(isset($err['user']) && $err['user'] != ''){ echo $err['user'];} ?></div>
-        </div>
-        <div class="input_login">
-            <input type="password" name="password" require placeholder="Mật khẩu">
-            <div class="err_login"><?php if(isset($err['pass']) && $err['pass'] != ''){ echo $err['pass'];} ?></div>
-        </div>
-        <input type="submit" value="Đăng nhập">
-        <a href="">Quên mật khẩu</a>
-    </form>
+<body style="position: fixed; top: 0; bottom: 0; left: 0; right: 0; display: flex; margin: auto;">
+    <!-- <div class="login"> -->
+        <form action="login.php?act=login" method="post" class="login" >
+            <div class="title">
+                <h1>Đăng nhập</h1>
+                <a href="signup.php">Đăng kí</a>
+            </div>
+            <div class="input_login">
+                <input type="text" name="username" require placeholder="Tài khoản">
+                <div class="err_login"><?php if(isset($err['user']) && $err['user'] != ''){ echo $err['user'];} ?></div>
+            </div>
+            <div class="input_login">
+                <input type="password" name="password" require placeholder="Mật khẩu">
+                <div class="err_login"><?php if(isset($err['pass']) && $err['pass'] != ''){ echo $err['pass'];} ?></div>
+            </div>
+            <input type="submit" class="btn_more" value="Đăng nhập">
+            <a href="">Quên mật khẩu</a>
+        </form>
+    <!-- </div> -->
 </body>
 </html>

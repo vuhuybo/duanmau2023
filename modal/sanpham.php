@@ -7,7 +7,7 @@
     function load_sp_dm($keyw='',$iddm){
         $sql = 'SELECT * from sanpham where 1';
         if(!empty($keyw)){
-            $sql .= " and name like '%".$keyw."'";
+            $sql .= " and name like '%".$keyw."%'";
         }
         if($iddm!=0){
             $sql .= " and iddm =".$iddm;
@@ -49,9 +49,9 @@
         $sql = "UPDATE sanpham SET luotxem = $view_count WHERE id = $id";
         pdo_execute($sql);
     }
-    function add_cart($idpro,$iduser){
-        $sql  = "INSERT INTO `cart`(`id_user`, `id_pro`) 
-        VALUES ('$iduser','$idpro')";
+    function add_cart($idpro,$iduser,$count){
+        $sql  = "INSERT INTO `cart`(`id_user`, `id_pro`, `count`) 
+        VALUES ('$iduser','$idpro','$count')";
         pdo_execute($sql);
     }
     function load_cart($iduser){
@@ -59,5 +59,19 @@
         $result = pdo_query($sql);
         return $result;
     }
+    function delesp_cart($idpro,$iduser){
+        $sql = "DELETE FROM `cart` WHERE id_pro=$idpro AND id_user=$iduser";
+        pdo_execute($sql);
+    }
+    function check_cart($iduser){
+        $sql = "SELECT * from cart where id_user=$iduser";
+        $result = pdo_query($sql);
+        return $result;
+    }
+    function update_cart($idpro,$iduser,$count){
+        $sql = " UPDATE `cart` SET `count`='$count' WHERE id_pro =$idpro AND id_user=$iduser ";
+        pdo_execute($sql);
+    }
+
     
     

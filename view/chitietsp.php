@@ -1,5 +1,4 @@
 <?php 
-    session_start();
     if(isset($_GET['id']) && $_GET['id'] != ''){
         $id = $_GET['id'];
         $sp = load_1sp($id);
@@ -31,7 +30,7 @@
             <div class="box_left">
                 <img class="img_box_left" src="upload/<?php echo $sp['img'] ?>" alt="">
             </div>
-            <form class="box_right" method="post">
+            <form class="box_right" action="index.php?act=addcart&idpro=<?php echo $sp['id'] ?>"  method="post">
                 <p class="namesp_detail"><?php echo $sp['name'] ?></p>
                 <div class="pricesp_detail"><?php echo $sp['price'] ?></div>
                 <div class="item">
@@ -44,7 +43,7 @@
                 </div>
                 <div class="item">
                     <span>Số lượng</span>  
-                    <input type="number" name="count" min="0" value="1">
+                    <input type="number" name="count" min="1" value="1">
                 </div>
                 <div class="item">
                     <span>Địa chỉ</span> 
@@ -63,8 +62,8 @@
                     </div>
                 </div>
                 <div>
-                    <button class="add_cart">Thêm vào giỏ hàng</button>
-                    <button class="buy">Mua ngay</button>
+                    <button class="add_cart" type="submit" name="action" value="add">Thêm vào giỏ hàng</button>
+                    <button class="buy" type="submit" name="action" value="bill">Mua ngay</button>
                 </div>
                 <hr class="hr_sp">
                 <div class="sp_service">

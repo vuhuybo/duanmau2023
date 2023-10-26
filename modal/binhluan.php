@@ -14,3 +14,7 @@
         VALUES ('$noidung','$iduser','$idpro','$ngaybinhluan')";
         pdo_execute($sql);
     }
+    function dele_cmt($id){
+        $sql = "DELETE FROM `binhluan` WHERE id=".$id;
+        pdo_execute($sql);
+    }

@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;0,700;1,300;1,500;1,700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="js/chuc.js"></script>
+    <script src="js/slide.js"></script>
 </head>
 <body>
     <div class="container">
@@ -18,10 +19,10 @@
                 <li><a href="">Home</a></li>
                 <li><a href="">Shop all</a></li>
                 <li><a href="">Mobile phones</a></li>
-                <li><a href="">Tablets</a></li>
-                <li><a href="">Phụ kiện</a></li>
+                <li><a href="">Laptop</a></li>
+                <li><a href="">Tablet</a></li>
             </nav>
-            <div class="login">
+            <div class="loginhome">
                 <a href="view/logout.php">Đăng xuất</a>
                 <div class="cart" onclick="cart()"><i class="fa-solid fa-cart-shopping"></i></div>
             </div>

@@ -1,6 +1,6 @@
 <?php 
     if(isset($_GET['id']) && $_GET['id'] != ''){
         $id = $_GET['id'];
-        delete_sp($id);
-        header('location: index.php?act=sanpham');
+        dele_cmt($id);
+        header('location: index.php?act=binhluan');
     }

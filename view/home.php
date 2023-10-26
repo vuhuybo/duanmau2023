@@ -1,5 +1,4 @@
-<div class="slide mb">
-            
+<div class="slide mb"> 
             <img width="690px" height="600px" id="banner" src="access/img/slide0.jpg" alt="">
             <button class="btn_slide-left">
                 <i class="fa-solid fa-angle-left icon_slide" onclick="pre()" ></i>
@@ -7,7 +6,6 @@
             <button class="btn_slide-right">
                 <i class="fa-solid fa-angle-right icon_slide" onclick="next()"></i>
             </button>
-</div>
     <div class="list mb">
             <h1 class="mb">Top 5 điện thoại nổi bật</h1>
         <div class="listsp">
@@ -21,19 +19,9 @@
                     </div>
                         <a href="<?php echo $linksp?> " class="name"><?php echo $name ?></a>
                         <div class="price"><?php echo $price ?></div>
-                        <a href="" class="add_btn">Add to cart</a>
+                        <a href="index.php?act=addcart&idpro=<?php echo $id ?>&from=home" class="add_btn">Add to cart</a>
                 </div>
             <?php endforeach ?>
-                <!-- <div class="pro">
-                    <div class="img">
-                        <img src="access/img/13-removebg-preview.png" alt="">
-                        <a href="" class="quickview">Quick view</a>
-                    </div>
-                    <a href=" " class="name">Iphone 12 pro max xanh dương</a>
-                    <div class="price">1000$</div>
-                    <a href="" class="add_btn">Add to cart</a>
-                </div> -->
-                
                 <div class="btn_more"><a href="">More Mobile Phone</a></div>
         </div>
    
@@ -48,7 +36,7 @@
                         </div>
                         <a href="<?php echo $linksp?> " class="name"><?php echo $name ?></a>
                         <div class="price"><?php echo $price ?></div>
-                        <a href="" class="add_btn">Add to cart</a>
+                        <a href="index.php?act=addcart&idpro=<?php echo $id ?>&from=home" class="add_btn">Add to cart</a>
                 </div>
             <?php endforeach ?>
                 <div class="btn_more"><a href="">More Mobile Phone</a></div>
@@ -64,7 +52,7 @@
                         </div>
                         <a href="<?php echo $linksp?> " class="name"><?php echo $name ?></a>
                         <div class="price"><?php echo $price ?></div>
-                        <a href="" class="add_btn">Add to cart</a>
+                        <a href="index.php?act=addcart&idpro=<?php echo $id ?>&from=home" class="add_btn">Add to cart</a>
                 </div>
             <?php endforeach ?>    
                 <div class="btn_more"><a href="">More Mobile Phone</a></div>

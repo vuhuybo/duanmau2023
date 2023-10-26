@@ -13,7 +13,6 @@
                 </select>
                 <input type="submit" value="Tìm kiếm">
             </form>
-        </select>
         </div>
         <table class="table_pro_admin">
             <th>

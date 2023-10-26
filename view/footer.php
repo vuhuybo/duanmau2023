@@ -6,105 +6,32 @@
                             <p>Cart</p>
                         </div>
                         <ul class="cart_list-sp">
+                            <?php 
+                                $carts = load_cart($_SESSION['uid']);
+                                foreach($carts as $cart): 
+                            ?>
                             <li>
                                 <div class="item_cart">
                                     <div class=" fl item_cart-img">
-                                        <img src="../upload/laptop1.jpg" alt="">
+                                        <img src="upload/<?php echo $cart['img'] ?>" alt="">
                                     </div>
                                     <div class="fl cart-sp">
-                                        <p>ip13</p>
-                                        <p>$500</p>
-                                        <input type="number" min="1" value="1" >
+                                        <p><?php echo $cart['name'] ?></p>
+                                        <p class="price_cart"><?php echo $cart['price'] ?></p>
+                                        <input type="number" min="1" value="<?php echo $cart['count'] ?>" name="count" class="count_cart">
                                     </div>
-                                    <button class="btn_remove-cart" >Xóa</button>
+                                    <button class="btn_remove-cart" ><a href="view/xoaspcart.php?idpro=<?php echo $cart['id']?>&iduser=<?php echo $_SESSION['uid'] ?>">Xóa</a></button>
                                 </div>
                             </li>
-                            <li>
-                                <div class="item_cart">
-                                    <div class=" fl item_cart-img">
-                                        <img src="../upload/laptop1.jpg" alt="">
-                                    </div>
-                                    <div class="fl cart-sp">
-                                        <p>ip13</p>
-                                        <p>$500</p>
-                                        <input type="number" min="1" value="1" >
-                                    </div>
-                                    <button class="btn_remove-cart" >Xóa</button>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item_cart">
-                                    <div class=" fl item_cart-img">
-                                        <img src="../upload/laptop1.jpg" alt="">
-                                    </div>
-                                    <div class="fl cart-sp">
-                                        <p>ip13</p>
-                                        <p>$500</p>
-                                        <input type="number" min="1" value="1" >
-                                    </div>
-                                    <button class="btn_remove-cart" >Xóa</button>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item_cart">
-                                    <div class=" fl item_cart-img">
-                                        <img src="../upload/laptop1.jpg" alt="">
-                                    </div>
-                                    <div class="fl cart-sp">
-                                        <p>ip13</p>
-                                        <p>$500</p>
-                                        <input type="number" min="1" value="1" >
-                                    </div>
-                                    <button class="btn_remove-cart" >Xóa</button>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item_cart">
-                                    <div class=" fl item_cart-img">
-                                        <img src="../upload/laptop1.jpg" alt="">
-                                    </div>
-                                    <div class="fl cart-sp">
-                                        <p>ip13 sfkf là cái gì đấy cũng dài lắm</p>
-                                        <p>$1500</p>
-                                        <input type="number" min="1" value="1" >
-                                    </div>
-                                    <button class="btn_remove-cart" >Xóa</button>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item_cart">
-                                    <div class=" fl item_cart-img">
-                                        <img src="../upload/laptop1.jpg" alt="">
-                                    </div>
-                                    <div class="fl cart-sp">
-                                        <p>ip13</p>
-                                        <p>$1500</p>
-                                        <input type="number" min="1" value="1" >
-                                    </div>
-                                    <button class="btn_remove-cart" >Xóa</button>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item_cart">
-                                    <div class=" fl item_cart-img">
-                                        <img src="../upload/laptop1.jpg" alt="">
-                                    </div>
-                                    <div class="fl cart-sp">
-                                        <p>ip13</p>
-                                        <p>$1500</p>
-                                        <input type="number" min="1" value="1" >
-                                    </div>
-                                    <button class="btn_remove-cart" >Xóa</button>
-                                </div>
-                            </li>
+                            <?php endforeach?>
                         </ul>
                         <div class="total_cart">
                             <div class="total_cart-title">
                                 <span>Subtotal</span>
-                                <div class="total_value">5000</div>
+                                <div class="total_price">0</div>
                             </div>
                             <hr>
-                            <div class="btn_more"><a href="">View cart</a></div>
+                            <div class="btn_more"><a href="">Pay</a></div>
                         </div>
                     </div>
         </div>
