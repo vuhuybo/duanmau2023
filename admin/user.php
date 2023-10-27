@@ -1,7 +1,6 @@
     <div>
         <div class="subject_admin">
             <h1>Danh sách người dùng</h1>
-            <a href="">ADD</a>
         </div>
         <table class="table_pro_admin">
             <th>
@@ -16,9 +15,7 @@
             </th>
             <?php foreach($listuser as $user): extract($user) ?>
             <tr>
-                    <td>
-                    <a href="" class="btn_add-admin">Sửa</a>
-                    <a href="" class="btn_dele-admin">delete</a>
+                <td>
                 </td>
                 <td> <?php echo $id ?></td>
                 <td><?php echo $user ?></td>

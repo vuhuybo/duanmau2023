@@ -4,7 +4,7 @@ function pdo_get_connection(){
     $username = "root";
     $password = "";
     try {
-        $conn = new PDO("mysql:host=$servername;dbname=duanmau2023", $username, $password);
+        $conn = new PDO("mysql:host=$servername;dbname=duanmau", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $conn;
     } catch(PDOException $e) {
@@ -61,4 +61,13 @@ function pdo_query_one($sql){
     }
 }
 pdo_get_connection();
+if (!function_exists('currency_format')) {
+
+function currency_format($number, $suffix = 'đ') {
+    if (!empty($number)) {
+        return number_format($number, 0, ',', '.') . "{$suffix}";
+    }
+}
+
+}
 ?>

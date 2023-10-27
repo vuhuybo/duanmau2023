@@ -7,7 +7,16 @@ function detail_pro(id){
         b = json_parse(a);
         $('.namedetail').html(b.name);
         $('.pricedetail').html(formatMoney(parseInt(b.price)));
-        $('imgdetail').attr('src','/upload'+b.img);
+        $('.imgdetail').attr('src','upload/'+b.img);
+        // console.log('1');
+        var des = (b.mota).split('.')
+        $('.des_manhinh').html(des[0]);
+        $('.des_chip').html(des[1]);
+        $('.des_bonho').html(des[2]);
+        $('.des_pin').html(des[3]);
+        console.log(b.id);
+        $('.them_cart').attr('href','index.php?act=addcart&idpro='+b.id+'&from=home');
+        console.log(des[0]);
     };
     xmlhttp.open("GET", "./index.php?act=sp&id=" + id, true);
     xmlhttp.send();
@@ -20,12 +29,13 @@ function json_parse(str){
     return JSON.parse(str);
   }
 function formatMoney(number) {
-    return number.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+    return number.toLocaleString('vi', { style: 'currency', currency: 'VND' });
     }
 $('.xoasp').on('click', function(){
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            background: '#fff',
+            title: 'Bạn có chắc muốn xóa?',
+            text: "Bạn sẽ không thể lấy lại!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -39,8 +49,9 @@ $('.xoasp').on('click', function(){
     })
 $('.xoadm').on('click', function(){
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            background: '#fff',
+            title: 'Bạn có chắc muốn xóa?',
+            text: "Bạn sẽ không thể lấy lại!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -59,9 +70,9 @@ $('.cart').on('click',function(){
     for(const pro of pros){
         const count = pro.querySelector(".count_cart");
         const price = pro.querySelector('.price_cart');
-        totalprice +=  parseInt(count.value) * parseInt(price.textContent);
+        totalprice +=  parseInt(count.value) * parseInt(price.getAttribute('value'));
     }
-    document.querySelector(".total_price").textContent = totalprice;
+    document.querySelector(".total_price").textContent = formatMoney(totalprice) ;
 })
 function cart(){
     var a = document.querySelector(".layout_cart");
@@ -78,14 +89,15 @@ $('.count_cart').on('change',function(){
     for(const pro of pros){
         const count = pro.querySelector(".count_cart");
         const price = pro.querySelector('.price_cart');
-        totalprice +=  parseInt(count.value) * parseInt(price.textContent);
+        totalprice +=  parseInt(count.value) * parseInt(price.getAttribute('value'));
     }
-    document.querySelector(".total_price").textContent = totalprice;
+    document.querySelector(".total_price").textContent = formatMoney(totalprice);
 })
 $('.xoacmt').on('click', function(){
     Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
+        background: '#fff',
+        title: 'Bạn có chắc muốn xóa?',
+        text: "Bạn sẽ không thể lấy lại!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -97,4 +109,19 @@ $('.xoacmt').on('click', function(){
         }
       })
 })
-
+$('.xoacart').on('click', function(){
+  Swal.fire({
+      background: '#fff',
+      title: 'Bạn có chắc muốn xóa?',
+      text: "Bạn sẽ không thể lấy lại!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.open('view/xoaspcart.php?idpro=' + $(this).attr('data-idpro')+'&iduser='+$(this).attr('data-iduser'))
+      }
+    })
+})

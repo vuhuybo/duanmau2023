@@ -1,5 +1,5 @@
 <?php 
-    if ($_SERVER["REQUEST_METHOD"] === "POST" || $_SERVER["REQUEST_METHOD"] === "GET"){
+    if (($_SERVER["REQUEST_METHOD"] === "POST" || $_SERVER["REQUEST_METHOD"] === "GET") && isset($_SESSION['uid'])){
         $iduser = $_SESSION['uid'];
         $idpro = $_GET['idpro'];
         if(isset($_POST['count'])){
@@ -25,4 +25,6 @@
         if($action == 'bill'){
 
         }
+    }else{
+        header('location: view/login.php');
     }

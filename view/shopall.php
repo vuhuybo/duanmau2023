@@ -16,16 +16,17 @@
             <?php foreach($listsp as $pro):
                 extract($pro);
                 $linksp = 'index.php?act=spct&id='.$id; ?>
-                <div class="pro">
+                <div class="pro mb">
                     <div class="img">
                             <img src="upload/<?php echo $img?>" alt="">
                             <div class="quickview"  onclick="detail_pro(<?php echo $id ?>)">Quick view</div>
                     </div>
                         <a href="<?php echo $linksp?> " class="name"><?php echo $name ?></a>
-                        <div class="price"><?php echo $price ?></div>
+                        <div class="price"><?php echo currency_format($price)  ?></div>
                         <a href="index.php?act=addcart&idpro=<?php echo $id ?>&from=home" class="add_btn">Add to cart</a>
                 </div>
             <?php endforeach ?>
+            </div>
                 <!-- <div class="btn_more"><a href="">More Mobile Phone</a></div> -->
         </div>
         <div class="modal">
@@ -42,25 +43,24 @@
                     <div class="description_pro mb50">
                         <p>Thông số kĩ thuật</p>
                         <table>
-                            <tr class="tr">
-                                <td>Kích thước màn hình</td>
-                                <td>6.1 inches</td>
-                            </tr>
-                            <tr >
-                                <td>Công nghệ màn hình</td>
-                                <td>Super Retina XDR OLED</td>
-                            </tr>
-                            <tr class="tr">
-                                <td>Camera sau</td>
-                                <td>Camera góc rộng: 12MP, f/1.6 <br>
-                                    Camera góc siêu rộng: 12MP, ƒ/2.4</td>
-                            </tr>
-                            <tr>
-                                <td>Pin</td>
-                                <td>3240mAh</td>
-                            </tr>
-                            
-                        </table>
+                        <tr class="tr">
+                            <td>Màn hình</td>
+                            <td class="des_manhinh">6.1 inches</td>
+                        </tr>
+                        <tr >
+                            <td>Công nghệ chip</td>
+                            <td class="des_chip">Super Retina XDR OLED</td>
+                        </tr>
+                        <tr class="tr">
+                            <td>Bộ nhớ</td>
+                            <td class="des_bonho"> </td>
+                        </tr>
+                        <tr>
+                            <td>Pin</td>
+                            <td class="des_pin">3240mAh</td>
+                        </tr>
+                        
+                    </table>
                     </div>
                     <div class="color mb50">
 
@@ -71,7 +71,7 @@
                             <option value="gold">Vàng</option>
                         </select>
                     </div>
-                    <div class="add_btn" style="opacity: 1;margin-top: 10px; margin-right: 90px;">Add to cart</div>
+                    <a class="add_btn them_cart" href="" style="opacity: 1;margin-top: 10px; margin-right: 90px;">Add to cart</a>
                 </div>
             </div>
         </div>

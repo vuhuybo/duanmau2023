@@ -72,7 +72,8 @@ nav li a:hover{
     width: 100%;
     margin-top: 20px;
     position: relative;
-}
+    height: 600px;
+    }
 .btn_slide-right{
     position: absolute;
     top: 50%;
@@ -122,6 +123,7 @@ nav li a:hover{
 }
 .pro img{
     width: 100%;
+    /* height: 200px; */
 }
 .img{
     position: relative;
@@ -294,6 +296,9 @@ nav li a:hover{
     position: absolute;
     top: 20px;
     right: 20px;
+    & i{
+        color: black;
+    }
 }
 .close:hover{
     opacity: 0.5;
@@ -310,9 +315,12 @@ nav li a:hover{
 }
 .box_left{
     height: 600px;
+    width: 600px;
+    padding-right: 23px;
 }
 .box_left img {
-    height: 100%;
+    height: auto;
+    width: 600px;
 }
 .box_right{
     width: 100%;
@@ -790,9 +798,9 @@ form{
                 }
                 & img{
                     padding: 0 10%;
-                    height: 100%;
+                    height: 80%;
                     margin-right: 10%;
-        
+                    margin-top: 10px;
                 }
                 & .cart-sp{
                     flex: 2;
@@ -802,11 +810,11 @@ form{
                     overflow: hidden;
                     text-overflow: clip;
                     & p:first-child{
-                        font-size: 25px;
+                        font-size: 20px;
                         white-space: nowrap;
                     }
                     & p:last-child{
-                        font-size: 20px;
+                        font-size: 15px;
                         font-weight: 700;
                         
                     }
@@ -815,7 +823,7 @@ form{
                         padding-left: 5%;
                         border: 1px gray solid;
                         border-radius: 10px;
-                        height: 80%;
+                        height: 25%;
                     }
                     & input:focus{
                         outline: none;
@@ -828,11 +836,13 @@ form{
                     cursor: pointer;
                     color: white;
                     border-radius: 10px;
-                    padding: 0 3px;
+                    padding: 26px 3px;
+                    height: 78%;
                     & a{
                         color: white;
                         text-decoration: none;
                     }
+                    align-self: center;
                 }
             }
         }
@@ -884,21 +894,23 @@ form{
     align-items: center;
     justify-content: space-between;
     color: white;
+    margin-left: 10%;
         & h1{
             color: white;
         }
         & a{
             color: white;
+            text-decoration: none;
         }
     }
     & .input_login{
     height: 40px;
     width: 80%;
-     &
-    input:first-child{
+    margin-left: 10%;
+    & input:first-child{
         margin-top: 30px;
      }
-     & input{
+    & input{
         width: 100%;
         height: 100%;
         margin-bottom: 15px;
@@ -908,9 +920,11 @@ form{
         outline: none;
         font-size: 15px;
      }
+    & .err_login{
+        color: white;
     }
-    &
-    input[type=submit]{
+    }
+    & input[type=submit]{
         outline: none;
         border: none;
         border-radius: 10px;
@@ -918,10 +932,11 @@ form{
         font-size: 20px;
         cursor: pointer;
     }
-    &
-    a{
+    & a{
         color: white;
         cursor: pointer;
+        text-decoration: none;
+        text-align: center;
     }
 }
 .signup{

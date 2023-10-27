@@ -6,7 +6,10 @@
     include 'modal/binhluan.php';
     include 'modal/user.php';
     if(empty($_SESSION['uid'])){
-        header('location: view/login.php');
+        // header('location: view/login.php');
+        $islogin = 'Đăng nhập';
+    }else{
+        $islogin = 'Đăng xuất';
     }
     if(isset($_GET['id']) && $_GET['id']!= '' && $_GET['act']=='sp'){
         $id = $_GET['id']; 

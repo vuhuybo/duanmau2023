@@ -7,8 +7,12 @@
                         </div>
                         <ul class="cart_list-sp">
                             <?php 
+                            if(!isset($_SESSION['uid'])){
+                                echo 'Đăng nhập để tạo giỏ hàng';
+                            }
+                            if(isset($_SESSION['uid'])):
                                 $carts = load_cart($_SESSION['uid']);
-                                foreach($carts as $cart): 
+                                foreach($carts as $cart):
                             ?>
                             <li>
                                 <div class="item_cart">
@@ -17,13 +21,13 @@
                                     </div>
                                     <div class="fl cart-sp">
                                         <p><?php echo $cart['name'] ?></p>
-                                        <p class="price_cart"><?php echo $cart['price'] ?></p>
+                                        <p class="price_cart" value = "<?php echo $cart['price'] ?>"><?php echo currency_format($cart['price'])  ?></p>
                                         <input type="number" min="1" value="<?php echo $cart['count'] ?>" name="count" class="count_cart">
                                     </div>
-                                    <button class="btn_remove-cart" ><a href="view/xoaspcart.php?idpro=<?php echo $cart['id']?>&iduser=<?php echo $_SESSION['uid'] ?>">Xóa</a></button>
+                                    <button class="btn_remove-cart xoacart" data-iduser = "<?php echo $_SESSION['uid'] ?>" data-idpro = "<?php echo $cart['id']?>" >Xóa</button>
                                 </div>
                             </li>
-                            <?php endforeach?>
+                            <?php endforeach; endif;?>
                         </ul>
                         <div class="total_cart">
                             <div class="total_cart-title">

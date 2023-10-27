@@ -19,7 +19,7 @@
                 <li><a href="<?php echo 'index.php?act=binhluan' ?>">Danh sách bình luận</a></li>
                 <li><a href="<?php echo 'index.php?act=user' ?>">Danh sách người dùng</a></li>
             </nav>
-            <div class="login">
+            <div class="loginhome">
                 <a href="../view/logout.php">Đăng xuất</a>
             </div>
         </header>

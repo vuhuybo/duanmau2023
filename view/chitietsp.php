@@ -1,4 +1,5 @@
 <?php 
+
     if(isset($_GET['id']) && $_GET['id'] != ''){
         $id = $_GET['id'];
         $sp = load_1sp($id);
@@ -12,18 +13,22 @@
         $count ++;
         count_view($count,$sp['id']);
         // xử lý bình luận
-        if(isset($_POST['cmt']) && $_POST['cmt'] != ''){
-            $noidung = $_POST['cmt'];
-            $idpro = $sp['id'];
-            if(isset($_SESSION['uid'])){
-                $iduser = $_SESSION['uid'];
-            }else{
-                $iduser = 1;
+            if(isset($_POST['cmt']) && $_POST['cmt'] != ''){
+                if(isset($_SESSION['uid'])){
+                    $noidung = $_POST['cmt'];
+                    $idpro = $sp['id'];
+                    if(isset($_SESSION['uid'])){
+                        $iduser = $_SESSION['uid'];
+                    }else{
+                        $iduser = 1;
+                    }
+                    $ngaybinhluan = date('Y-m-d');
+                    add_bl($noidung,$iduser,$idpro,$ngaybinhluan);
+                    header('location:index.php?act=spct&id='.$sp['id']);
+                }else{
+                    header('location: view/login.php');
+                }
             }
-            $ngaybinhluan = date('Y-m-d');
-            add_bl($noidung,$iduser,$idpro,$ngaybinhluan);
-            header('location:index.php?act=spct&id='.$sp['id']);
-        }
     }
 ?>
 <div class="boxsp">
@@ -32,7 +37,7 @@
             </div>
             <form class="box_right" action="index.php?act=addcart&idpro=<?php echo $sp['id'] ?>"  method="post">
                 <p class="namesp_detail"><?php echo $sp['name'] ?></p>
-                <div class="pricesp_detail"><?php echo $sp['price'] ?></div>
+                <div class="pricesp_detail"><?php echo currency_format($sp['price']);  ?></div>
                 <div class="item">
                     <span>Màu sắc</span>
                     <select name="color" id="">
@@ -92,21 +97,20 @@
         <p>MÔ TẢ SẢN PHẨM</p>
         <table>
             <tr class="tr">
-                <td>Kích thước màn hình</td>
+                <td>màn hình</td>
                 <td><?php echo $mota[0] ?></td>
             </tr>
             <tr >
-                <td>Công nghệ màn hình</td>
+                <td>Chip</td>
                 <td><?php echo $mota[1] ?></td>
             </tr>
             <tr class="tr">
-                <td>Camera sau</td>
-                <td><?php echo $mota[2] ?> <br>
-                <?php echo $mota[3] ?></td>
+                <td>Bộ nhớ</td>
+                <td><?php echo $mota[2] ?></td>
             </tr>
             <tr>
                 <td>Pin</td>
-                <td><?php echo $mota[4] ?></td>
+                <td><?php echo $mota[3] ?></td>
             </tr>
             
         </table>
@@ -147,7 +151,7 @@
                         <div class="quickview" onclick="detail_pro()">Quick view</div>
                     </div>
                     <a href="<?php echo $linksp ?> " class="name"><?php echo $pro['name'] ?></a>
-                    <div class="price"><?php echo $pro['price'] ?></div>
+                    <div class="price"><?php echo currency_format($pro['price'])  ?></div>
                     <a href="" class="add_btn">Add to cart</a>
                 </div>
             <?php endforeach ?>
