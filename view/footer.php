@@ -38,7 +38,7 @@
                             <div class="btn_more"><a href="">Pay</a></div>
                         </div>
                     </div>
-        </div>
+    </div>
     <div class="footer">Chúc pro vip</div>
     <script src="js/chuc.js"></script>
 </body>

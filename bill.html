@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fontawesome-free-6.4.2-web/fontawesome-free-6.4.2-web/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;0,700;1,300;1,500;1,700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <li><a href="">Home</a></li>
+                <li><a href="">Shop all</a></li>
+                <li><a href="">Mobile phones</a></li>
+                <li><a href="">Tablets</a></li>
+                <li><a href="">Phụ kiện</a></li>
+            </nav>
+            <div class="loginhome">
+                <a href="">Đăng nhập</a>
+                <div class="cart"><a href=""><i class="fa-solid fa-cart-shopping"></i></a></div>
+            </div>
+        </header>
+        <section class="address">
+            <h3>Địa chỉ nhận hàng</h3>
+            <p class="address-name">Ngô Văn Chúc</p>
+            <p class="tel-bill">0398610020</p>
+            <p class="location">32 ngõ 406 Xuân Phương Hà Nội</p>
+            <div>Thay đổi</div>
+        </section>
+        <section class="bill">
+            <div class="bill-header">
+                <div class="bill-header-item" style="flex: 6;">
+                    <h2>Sản phẩm</h2>
+                </div>
+                <div class="bill-header-item" style="flex: 2;">Đơn giá</div>
+                <div class="bill-header-item" style="flex: 2;">Số lượng</div>
+                <div class="bill-header-item" style="flex: 2;">Thành tiền</div>
+            </div>
+            <div class="bill-pro">
+                <div class="bill-pro-item">
+                    <div class="bill-pro-sanpham" style="flex: 6;">
+                        <img src="upload/035907e5bf878f91b79d9dfe30c1fc4f.png" height="40px" width="40px" alt="">
+                        <span>Iphone 13 pro max</span>
+                    </div>
+                    <div class="bill-pro-price" style="flex: 2;">15000000</div>
+                    <div class="bill-pro-quatity" style="flex: 2;">1</div>
+                    <div class="bill-pro-subtotal" style="flex: 2;">15000000</div>
+                </div>
+            </div>
+        </section>
+        <section class="bill-total">
+            <div class="method-pay">
+                <div>Phương thức thanh toán</div>
+                <div>Thanh toán khi nhận hàng</div>
+            </div>
+            <div class="total-bill">
+                <div class="total-bill-title" style="flex: 4;">Tổng tiền thanh toán</div>
+                <div class="detail-total" style="flex: 2;">
+                    <div class="bill-price-pro" >
+                        <p>Tổng tiền hàng:</p>
+                        <p>15000000</p>
+                    </div>
+                    <div class="bill-ship">
+                        <p>Phí vận chuyển:</p>
+                        <p>20000</p>
+                    </div>
+                    <div class="bill-detail-total">
+                        <p>Tổng tiền hàng:</p>
+                        <p>15020000</p>
+                    </div>
+                </div>
+            </div>
+            <div class="btn_more"><a href="">Pay</a></div>
+        </section>
+    </div>
+    <script src="js/chuc.js"></script>
+    <div class="modal" >
+        <div class="overlay"></div>
+        <div class="modal_content-address">
+            <div class="address-header">
+                <div class="address-title">Địa chỉ của tôi</div>
+                <button class="add-address">Thêm địa chỉ mới</button>
+            </div>
+            <div class="address-list">
+                <div class="address-item">
+                    <div class="address-item-left">
+                        <div class="address-item_cicrle">
+                            <div class="address-item_cicrle-checked"></div>
+                        </div>
+                        <div class="address-item_content">
+                            <p class="address_address-name">Ngô Văn Chúc</p>
+                            <p class="address_tel-bill">0398610020</p>
+                            <p class="address_location">32 ngõ 406 Xuân Phương Hà Nội</p>
+                        </div>
+                    </div>
+                    <div class="address-item-right">Cập nhật</div>
+                </div>
+                <!-- address-item -->
+                <div class="address-item">
+                    <div class="address-item-left">
+                        <div class="address-item_cicrle">
+                            <div class="address-item_cicrle-checked"></div>
+                        </div>
+                        <div class="address-item_content">
+                            <p class="address_address-name">Ngô Văn Chúc</p>
+                            <p class="address_tel-bill">0398610020</p>
+                            <p class="address_location">32 ngõ 406 Xuân Phương Hà Nội</p>
+                        </div>
+                    </div>
+                    <div class="address-item-right">Cập nhật</div>
+                </div>
+                <div class="address-item">
+                    <div class="address-item-left">
+                        <div class="address-item_cicrle">
+                            <div class="address-item_cicrle-checked"></div>
+                        </div>
+                        <div class="address-item_content">
+                            <p class="address_address-name">Ngô Văn Chúc</p>
+                            <p class="address_tel-bill">0398610020</p>
+                            <p class="address_location">32 ngõ 406 Xuân Phương Hà Nội</p>
+                        </div>
+                    </div>
+                    <div class="address-item-right">Cập nhật</div>
+                </div>
+                <div class="address-item">
+                    <div class="address-item-left">
+                        <div class="address-item_cicrle">
+                            <div class="address-item_cicrle-checked"></div>
+                        </div>
+                        <div class="address-item_content">
+                            <p class="address_address-name">Ngô Văn Chúc</p>
+                            <p class="address_tel-bill">0398610020</p>
+                            <p class="address_location">32 ngõ 406 Xuân Phương Hà Nội</p>
+                        </div>
+                    </div>
+                    <div class="address-item-right">Cập nhật</div>
+                </div>
+                <div class="address-item">
+                    <div class="address-item-left">
+                        <div class="address-item_cicrle">
+                            <div class="address-item_cicrle-checked"></div>
+                        </div>
+                        <div class="address-item_content">
+                            <p class="address_address-name">Ngô Văn Chúc</p>
+                            <p class="address_tel-bill">0398610020</p>
+                            <p class="address_location">32 ngõ 406 Xuân Phương Hà Nội</p>
+                        </div>
+                    </div>
+                    <div class="address-item-right">Cập nhật</div>
+                </div>
+                <div class="address-item">
+                    <div class="address-item-left">
+                        <div class="address-item_cicrle">
+                            <div class="address-item_cicrle-checked"></div>
+                        </div>
+                        <div class="address-item_content">
+                            <p class="address_address-name">Ngô Văn Chúc</p>
+                            <p class="address_tel-bill">0398610020</p>
+                            <p class="address_location">32 ngõ 406 Xuân Phương Hà Nội</p>
+                        </div>
+                    </div>
+                    <div class="address-item-right">Cập nhật</div>
+                </div>
+                <!-- address-item -->
+                
+            </div>
+            <div class="address-btn">
+                <button>Cancel</button>
+                <button>Xác nhận</button>
+            </div>
+        </div>
+    
+    </div>
+    <div class="modal">
+        <div class="overlay"></div>
+        <div class="modal_content-add">
+            <div class="address-add_title">
+                Địa chỉ mới
+            </div>
+            <form action="" method="post">
+                <div class="address-add_item">
+                    <input type="text" name="name" placeholder="Họ và tên">
+                    <input type="text" name="tel" placeholder="Số điện thoại">
+                </div>
+                <div class="address-add_item">
+                    <input type="text" name="tinh" placeholder="Tỉnh/thành phố, Quận/huyện, Phường/xã">
+                </div>
+                <div class="address-add_item">
+                    <input type="text" style="overflow-wrap: break-word;" name="detail_address" placeholder="Địa chỉ cụ thể">
+                </div>
+                <button>Trở lại</button>
+                <button type="submit">Thêm</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

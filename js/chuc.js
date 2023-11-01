@@ -125,3 +125,26 @@ $('.xoacart').on('click', function(){
       }
     })
 })
+$('.change-address').on('click',function(){
+  console.log('1');
+  $('.address-checked').css('display','block');
+})
+$('.add-address').on('click',function(){
+  console.log('2');
+  $('.address-checked').css('display','none');
+  $('.add-address-checked').css('display','block');
+})
+$('.back-address').on('click',function(){
+  console.log('3');
+  $('.add-address-checked').css('display','none');
+  $('.address-checked').css('display','block');
+})
+$('.cancel-address').on('click',function(){
+  console.log('4');
+  $('.address-checked').css('display','none');
+})
+$('.update-address').on('click',function(){
+  console.log('5');
+  $('.update-address-checked').css('display','block');
+})
+

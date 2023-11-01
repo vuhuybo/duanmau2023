@@ -69,6 +69,9 @@
                             }
                             include 'view/tablet.php';
                             break;
+                        case 'bill':
+                            include 'view/bill.php';
+                            break;
             }
     
         }else{

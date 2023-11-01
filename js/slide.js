@@ -30,3 +30,4 @@ function pre(){
     document.getElementById("banner").src=album[index].src;
    
 }
+console.log('1');

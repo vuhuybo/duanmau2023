@@ -999,3 +999,257 @@ form{
             cursor: pointer;
         }
 }
+/* bill */
+.address{
+    margin: 20px;
+    background-color: white;
+    padding: 28px 30px 24px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
+    & p{
+        padding-left: 20px;
+        margin-bottom: 3px;
+    }
+    & h3{
+        color: #6e3ffb;
+        margin-bottom: 5px;
+    }
+    & .address-name,.tel-bill{
+        font-weight: 500;
+        font-size: 16px;
+    }
+    & .location{
+        font-size: 15px;
+        margin-bottom: 5px;
+    }
+    & div{
+        font-weight: 300;
+        color: #6e3ffb;
+        cursor: pointer;
+    }
+}
+.bill{
+    margin: 20px ;
+    background-color: white;
+    padding: 28px 30px 24px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
+    & .bill-header{
+        display: flex;
+        align-items: center;
+        & :nth-child(4),:nth-child(2),:nth-child(3){
+            color: gray;
+            display: flex;
+            justify-content: center;
+        }
+    }
+    & .bill-pro{
+        margin-top: 5px;
+        & .bill-pro-item{
+            display: flex;
+            & div{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            & :nth-child(1){
+                justify-content: left;
+                & img{
+                    margin-right: 5px;
+                }
+            }
+    
+        }
+    }
+    
+}
+.bill-total{
+    margin: 20px ;
+    background-color: white;
+    padding: 28px 30px 24px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
+    & .method-pay{
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: dashed 1px gray;
+        & :nth-child(1){
+            font-weight: 500;
+        }
+        & :nth-child(2){
+            font-size: 13px;
+        }
+    }
+    & .total-bill{
+        display: flex;
+        justify-content: space-between;
+        padding-top: 20px;
+        & .total-bill-title{
+            font-weight: 500;
+        }
+        & .detail-total{
+            & .bill-price-pro,.bill-ship,.bill-detail-total{
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 15px;
+                & p{
+                    font-size: 13px;
+                }
+            }
+            & .bill-detail-total{
+                align-items: center;
+                & :nth-child(2){
+                    color: #6e3ffb;
+                    font-size: 25px;
+                }
+            }
+        }
+    }
+    & .btn_more{
+        width: 200px;
+        font-size: 20px;
+    }
+}
+.modal_content-address{
+    height: 60%;
+    width: 25%;
+    background-color: white;
+    position: absolute;
+    top: 20%;
+    left: 37.5%;
+    border-radius: 30px;
+    & .address-header{
+        height: 10%;
+        /* padding: 20px */
+        border-bottom: 1px solid gray;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding:0 20px;
+        & .address-title{
+            font-weight: 500;
+        }
+        & button{
+            background: #6e3ffb;
+            outline: none;
+            border: none;
+            padding: 5px 10px;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+    }
+    & .address-list{
+        height: 80%;
+        overflow: auto;
+        & .address-item{
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgb(228, 227, 227);
+        }
+        & .address-item-left{
+            display: flex;
+            align-items: center;
+            & .address-item_cicrle{
+                height: 15px;
+                width: 15px;
+                border: 1px gray solid;
+                margin-right: 10px;
+                border-radius: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                & .address-item_cicrle-checked{
+                    height: 6px;
+                    width: 6px;
+                    background-color: #6e3ffb;
+                    border-radius: 100%;
+                }
+            }
+        }
+        & .address-item-right{
+            color: #6e3ffb;
+            font-size: 15px;
+            cursor: pointer;
+        }
+    }
+    & .address-btn{
+        box-shadow: 0px -1px 2px rgb(188, 186, 186);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        & button{
+            border: none;
+            border-radius: 10px;
+            background-color: none;
+            margin: 0 30px;
+            font-size: 15px;
+            font-weight: 500;
+            margin-top: 7px;
+            padding: 5px 10px;
+        }
+        & :nth-child(1){
+            background-color: white;
+            border: 1px gray solid;
+        }
+        & :nth-child(2){
+            background-color: #6e3ffb;
+            color: white;
+        }
+    }
+}
+.modal_content-add{
+    height: 60%;
+    width: 25%;
+    background-color: white;
+    position: absolute;
+    top: 20%;
+    left: 37.5%;
+    border-radius: 30px;
+    & .address-add_title{
+        height: 15%;
+        padding-top: 30px;
+        padding-left: 30px;
+        font-size: 18px;
+        font-weight: 500;
+        border-bottom: 1px solid rgb(187, 186, 186);
+    }
+    & form{
+        margin: 20px;
+        /* padding: 20px 30px; */
+        width: 340px;
+        & .address-add_item{
+            & input{
+                margin: 20px;
+                height: 40px;
+                padding-left: 20px;
+                border-radius: 10px;
+                border: 1px solid gray;
+                width: 100%;
+            }
+        }
+        & :nth-child(3){
+            & input{
+                height: 60px;
+            }
+        }
+        & button{
+            font-size: 15px;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 10px;
+            margin-left: 80px;
+            cursor: pointer;
+        }
+        & :nth-child(4){
+            border: 1px solid gray;
+            background-color: white;
+        }
+        & :nth-child(5){
+            background-color: #6e3ffb;
+            color: white;
+        }
+    }
+}
