@@ -129,22 +129,73 @@ $('.change-address').on('click',function(){
   console.log('1');
   $('.address-checked').css('display','block');
 })
+$('.cancel-address').on('click',function(){
+  console.log('1.1');
+  $('.address-checked').css('display','none');
+})
 $('.add-address').on('click',function(){
   console.log('2');
   $('.address-checked').css('display','none');
   $('.add-address-checked').css('display','block');
 })
-$('.back-address').on('click',function(){
+$('.back-address1').on('click',function(){
   console.log('3');
   $('.add-address-checked').css('display','none');
   $('.address-checked').css('display','block');
 })
-$('.cancel-address').on('click',function(){
-  console.log('4');
-  $('.address-checked').css('display','none');
+
+$('.back-address2').on('click',function(){
+  console.log('6');
+  $('.update-address-checked').css('display','none');
+  $('.address-checked').css('display','block');
 })
-$('.update-address').on('click',function(){
-  console.log('5');
+function update_address(id){
   $('.update-address-checked').css('display','block');
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        var a = this.responseText;
+        b = json_parse(a);
+        $('.form_update_address').attr('action','view/address/update_address.php?id_address='+ b.id)
+        $('.name_update-address').attr('value',b.name);
+        $('.tel_update-address').attr('value',b.tel);
+        $('.tinh_update-address').attr('value',b.tinh);
+        $('.detail_location_update-address').attr('value',b.detail_location);
+    };
+    xmlhttp.open("GET", "./view/address/update_address.php?id=" + id, true);
+    xmlhttp.send();
+}
+
+function change_address(){
+  const inp = $('input[name="check-address"]:checked');
+  const labl = inp.next('label');
+  const name = labl.find('p').eq(0).text();
+  const id = labl.attr('data-id');
+  const tel = labl.find('p').eq(1).text();
+  const location = labl.find('p').eq(2).text();
+  
+
+  $('.address-name').html(name);
+  $('.tel-bill').html(tel);
+  $('.address-id').attr('value',id);
+  $('.location').html(location);
+  console.log('1');
+}
+$('.count_cart').change( function(){
+  console.log('change count');
+  var xmlhttp = new XMLHttpRequest();
+  id_pro = $(this).attr('data-idpro');
+  count_cart = $(this).val();
+  console.log(count_cart);
+  console.log(id_pro);
+  xmlhttp.onreadystatechange = function() {
+  };
+  xmlhttp.open("GET", "./index.php?act=addcart&count_cart="+count_cart +"&idpro=" + id_pro, true);
+  xmlhttp.send();
+})
+$('.bye').on('click',function(){
+  const price = $('.bill-pro-subtotal').val();
+  console.log(price);
+  // const quatity = $('.')
+
 })
 

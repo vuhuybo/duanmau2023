@@ -5,6 +5,7 @@
     include 'modal/danhmuc.php';
     include 'modal/binhluan.php';
     include 'modal/user.php';
+    include 'modal/bill.php';
     if(empty($_SESSION['uid'])){
         // header('location: view/login.php');
         $islogin = 'Đăng nhập';
@@ -42,36 +43,45 @@
                     }
                     include 'view/shopall.php';
                     break;
-                    case "mobile":
-                        if( (isset($_POST['keyw'])) ){
-                            $keyw  = $_POST['keyw'];
-                            $listmobile = load_sp_dm($keyw,2);
-                        }else{
-                            $listmobile = load_sp_dm('',2);
-                        }
-                        include 'view/mobile.php';
-                        break;
-                    case "laptop":
-                        if( (isset($_POST['keyw'])) ){
-                            $keyw  = $_POST['keyw'];
-                            $listlaptop = load_sp_dm($keyw,1);
-                        }else{
-                            $listlaptop = load_sp_dm('',1);
-                        }
-                        include 'view/laptop.php';
-                        break;
-                        case "tablet":
-                            if( (isset($_POST['keyw'])) ){
-                                $keyw  = $_POST['keyw'];
-                                $listtablet = load_sp_dm($keyw,3);
-                            }else{
-                                $listtablet= load_sp_dm('',3);
-                            }
-                            include 'view/tablet.php';
-                            break;
-                        case 'bill':
-                            include 'view/bill.php';
-                            break;
+                case "mobile":
+                    if( (isset($_POST['keyw'])) ){
+                        $keyw  = $_POST['keyw'];
+                        $listmobile = load_sp_dm($keyw,2);
+                    }else{
+                        $listmobile = load_sp_dm('',2);
+                    }
+                    include 'view/mobile.php';
+                    break;
+                case "laptop":
+                    if( (isset($_POST['keyw'])) ){
+                        $keyw  = $_POST['keyw'];
+                        $listlaptop = load_sp_dm($keyw,1);
+                    }else{
+                        $listlaptop = load_sp_dm('',1);
+                    }
+                    include 'view/laptop.php';
+                    break;
+                case "tablet":
+                    if( (isset($_POST['keyw'])) ){
+                        $keyw  = $_POST['keyw'];
+                        $listtablet = load_sp_dm($keyw,3);
+                    }else{
+                        $listtablet= load_sp_dm('',3);
+                    }
+                    include 'view/tablet.php';
+                    break;
+                case 'bill':
+                    include 'view/bill.php';
+                    break;
+                case 'add_address':
+                    include 'view/address/add_address.php';
+                    break;
+                case 'order_status':
+                    include 'view/order_status.php';
+                    break;
+                case 'infouser':
+                    include 'view/infouser.php';
+                    break;
             }
     
         }else{

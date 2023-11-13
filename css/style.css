@@ -1045,6 +1045,7 @@ form{
         margin-top: 5px;
         & .bill-pro-item{
             display: flex;
+            margin: 10px 0;
             & div{
                 display: flex;
                 align-items: center;
@@ -1145,7 +1146,7 @@ form{
         & .address-item{
             display: flex;
             justify-content: space-between;
-            margin: 20px;
+            margin: 20px 10px;
             padding-bottom: 20px;
             border-bottom: 1px solid rgb(228, 227, 227);
         }
@@ -1193,10 +1194,19 @@ form{
         & :nth-child(1){
             background-color: white;
             border: 1px gray solid;
+            cursor: pointer;
         }
         & :nth-child(2){
+            border: none;
+            border-radius: 10px;
+            margin: 0 30px;
+            font-size: 15px;
+            font-weight: 500;
+            margin-top: 7px;
+            padding: 5px 10px;
             background-color: #6e3ffb;
             color: white;
+            cursor: pointer;
         }
     }
 }
@@ -1217,12 +1227,12 @@ form{
         border-bottom: 1px solid rgb(187, 186, 186);
     }
     & form{
-        margin: 20px;
+        margin: 15px;
         /* padding: 20px 30px; */
-        width: 340px;
+        width: 80%;
         & .address-add_item{
             & input{
-                margin: 20px;
+                margin: 10px;
                 height: 40px;
                 padding-left: 20px;
                 border-radius: 10px;
@@ -1235,21 +1245,189 @@ form{
                 height: 60px;
             }
         }
-        & button{
+        & .check_default{
+            display: flex;
+            align-items: center;
+            height: 40px;
+                & input{
+                    height: 20px;
+                    width: 20px;
+                    margin-right: 10px;
+                }
+        }
+        /* button{
             font-size: 15px;
             border: none;
             padding: 5px 10px;
             border-radius: 10px;
-            margin-left: 80px;
+            margin-left: 70px;
             cursor: pointer;
-        }
-        & :nth-child(4){
+        } */
+        /* & :nth-child(5){
+            font-size: 15px;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 10px;
+            margin-left: 70px;
+            cursor: pointer;
             border: 1px solid gray;
             background-color: white;
+        } */
+        & .btn_modal_content-add{
+            display: flex;
+            & .back-address1,.back-address2{
+                width: 22%;
+                font-size: 15px;
+                border: none;
+                padding: 5px 10px;
+                border-radius: 10px;
+                margin-left: 70px;
+                cursor: pointer;
+                border: 1px solid gray;
+                background-color: white;
+            }
+            & :nth-child(2){
+                font-size: 15px;
+                border: none;
+                padding: 5px 10px;
+                border-radius: 10px;
+                margin-left: 70px;
+                cursor: pointer;
+                background-color: #6e3ffb;
+                color: white;
+            }
+            
         }
-        & :nth-child(5){
-            background-color: #6e3ffb;
-            color: white;
+    }
+}
+/* info user */
+.info_user{
+    display: flex;
+    gap: 10px;
+    & .left_info{
+        padding: 20px;
+        flex: 2;
+        background-color: aqua;
+        box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
+
+        & .left_info-info{
+            display: flex;
+            background-color: plum;
+            gap: 15%;
+            margin-bottom: 20px;
+            & img{
+                height: 40px;
+                width: 40px;
+            }
+            & div{
+                & .left_info-name{
+                    font-size: 18px;
+                    font-weight: 500;
+                }
+                & span{
+                    font-size: 15px;
+                    font-weight: 300;
+                    cursor: pointer;
+                }
+            }
+        }
+        & .left_info-account{
+            margin-bottom: 20px;
+            & div{
+                font-size: 18px;
+                margin-bottom: 10px;
+                cursor: pointer;
+            }
+            & ul{
+                margin-left: 20%;
+                list-style: none;
+                cursor: pointer;
+                & li{
+                    margin: 5px;
+                    font-size: 16px;
+                }
+                & li:hover{
+                    color: #6e3ffb;
+                }
+            }
+        }
+        & .left_info-orders{
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        & .left_inof-vouchers{
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+    }
+    & .right_info{
+        margin: 20px;
+        flex: 8;
+        background-color: #fff;
+    }
+    & .right_info-info{
+        padding: 10px;
+        box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
+
+        & .right-info_header{
+            border-bottom: 1px solid rgb(181, 181, 181);
+            padding: 10px;
+            padding-top: 0;
+            & h1{
+                padding-bottom: 5px;
+            }
+        }
+        & .right-info_body{
+            padding-top: 30px;
+            & form{
+                width: 80%;
+                & .right-info_item{
+                    display: flex;
+                    padding: 15px;
+                    gap: 20%;
+                    & p{
+                        flex: 2;
+                        float: right;
+                    }
+                    & input{
+                        flex: 4;
+                        float: left;
+                        width: 22%;
+                        height: 40px;
+                        border-radius: 10px;
+                        padding-left: 20px;
+                        border: 1px gray solid;
+                    }
+                }
+                & .right-info_item-sex{
+                    display: flex;
+                    & p{
+                        flex: 2;
+                        float: right;
+                    }
+                    & div{
+                        flex: 4;
+                        float: left;
+                        align-items: center;
+                        display: flex;
+                        & input{
+                            float: none;
+                            height: 20px;
+                            padding-right: 20px;
+                        }
+                    }
+                }
+                & input[type='submit']{
+                    border: none;
+                    color: #fff;
+                    width: 30%;
+                    cursor: pointer;
+                    font-size: 18px;
+                }
+                & input[type='submit']:hover{
+                    opacity: 0.8;
+                }
+            }
         }
     }
 }

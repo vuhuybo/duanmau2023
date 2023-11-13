@@ -23,6 +23,7 @@
                 <td>ID loại</td>
                 <td>Số lượt xem</td>
                 <td>Mô tả</td>
+                <td>Số lượng</td>
             </th>
             <?php foreach($listsp as $pro): extract($pro) ?>
             <tr>
@@ -37,6 +38,7 @@
                 <td><?php echo $iddm ?></td>
                 <td><?php echo $luotxem ?></td>
                 <td><?php echo $mota ?></td>
+                <td><?php echo $soluong ?></td>
             </tr>
             <?php endforeach ?>
         </table>

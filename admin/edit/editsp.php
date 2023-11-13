@@ -16,7 +16,13 @@
         }else{
             $error['price'] = 'chưa nhập giá sản phẩm';
         }
-        
+
+        if(isset($_POST['soluong']) && $_POST['soluong'] !== ''){
+            $soluong = $_POST['soluong'];
+        }else{
+            $error['soluong'] = 'chưa nhập số lượng sản phẩm';
+        }
+
         if(isset($_POST['description_sp']) && $_POST['description_sp'] !== ''){
             $mota = $_POST['description_sp'];
         }else{
@@ -51,8 +57,8 @@
             $new_file = $pro['img'];
         }
         if(empty($error)){
-            edit_sp($idsp, $name, $price ,$new_file,$mota,$iddm);
-            echo '<div style="text-align: center;">Sửa thành công</div>';
+            edit_sp($idsp, $name, $price ,$new_file,$mota,$iddm,$soluong);
+            echo '<div style="text-align: center; color: red;">Sửa thành công</div>';
         }
     }
           
@@ -70,6 +76,11 @@
         <input type="number" min="0" name="gia_sp" value="<?php echo $pro['price'] ?>">
     </div>
     <div class="error"><?php if(isset($error['price']) && $error['price'] !== '' ){ echo $error['price']; } ?></div>
+    <div class="item_input">
+        <label for="">Số lượng sản phẩm</label>
+        <input type="number" min="0" name="soluong" value="<?php echo $pro['soluong'] ?>">
+    </div>
+    <div class="error"><?php if(isset($error['soluong']) && $error['soluong'] !== '' ){ echo $error['soluong']; } ?></div>
     <div class="item_input">
         <label for="">Mô tả sản phẩm</label>
         <textarea cols="40" rows="8" type="" name="description_sp" value="<?php echo $pro['mota'] ?>"><?php echo $pro['mota'] ?></textarea>
@@ -109,6 +120,7 @@
         }
         ?>
     </div>
+    
     <div class="btn_form">
         <input type="submit" value="Sửa">
     </div>

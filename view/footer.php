@@ -22,7 +22,7 @@
                                     <div class="fl cart-sp">
                                         <p><?php echo $cart['name'] ?></p>
                                         <p class="price_cart" value = "<?php echo $cart['price'] ?>"><?php echo currency_format($cart['price'])  ?></p>
-                                        <input type="number" min="1" value="<?php echo $cart['count'] ?>" name="count" class="count_cart">
+                                        <input type="number" min="1" value="<?php echo $cart['count'] ?>" name="count_cart" class="count_cart" data-idpro = "<?php echo $cart['id']?>" >
                                     </div>
                                     <button class="btn_remove-cart xoacart" data-iduser = "<?php echo $_SESSION['uid'] ?>" data-idpro = "<?php echo $cart['id']?>" >Xóa</button>
                                 </div>
@@ -35,7 +35,7 @@
                                 <div class="total_price">0</div>
                             </div>
                             <hr>
-                            <div class="btn_more"><a href="">Pay</a></div>
+                            <a href="index.php?act=bill" style="text-decoration: none;"><div class="btn_more buy" >Pay</div></a>
                         </div>
                     </div>
     </div>

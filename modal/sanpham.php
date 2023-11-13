@@ -36,9 +36,9 @@
         VALUE ('$name','$price','$img','$mota','$iddm')";
         pdo_execute($sql);
     }
-    function edit_sp($id, $name , $price , $img , $mota , $iddm){
+    function edit_sp($id, $name , $price , $img , $mota , $iddm,$soluong){
         $sql = "UPDATE `sanpham` SET
-        `name`='$name',`price`='$price',`img`='$img',`mota`='$mota',`iddm`='$iddm' WHERE id=".$id;
+        `name`='$name',`price`='$price',`img`='$img',`mota`='$mota',`iddm`='$iddm',`soluong`='$soluong' WHERE id=".$id;
         pdo_execute($sql);
     }
     function delete_sp($id){

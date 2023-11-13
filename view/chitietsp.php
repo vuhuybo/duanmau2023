@@ -48,7 +48,7 @@
                 </div>
                 <div class="item">
                     <span>Số lượng</span>  
-                    <input type="number" name="count" min="1" value="1">
+                    <input type="number" class="count_pro_cart" name="count_cart" min="1" value="1">
                 </div>
                 <div class="item">
                     <span>Địa chỉ</span> 

@@ -1,9 +1,18 @@
 <?php 
+    // update count pro in cart
+    if(isset($_GET['count_cart'])){
+        $iduser = $_SESSION['uid'];
+        $count  = $_GET['count_cart'];
+        $idpro = $_GET['idpro'];
+        update_cart($idpro,$iduser,$count);
+        exit();
+    }
+    // add pro to cart
     if (($_SERVER["REQUEST_METHOD"] === "POST" || $_SERVER["REQUEST_METHOD"] === "GET") && isset($_SESSION['uid'])){
         $iduser = $_SESSION['uid'];
         $idpro = $_GET['idpro'];
-        if(isset($_POST['count'])){
-            $count = $_POST['count'];
+        if(isset($_POST['count_cart'])){
+            $count = $_POST['count_cart'];
         }else{
             $count = 1;
         }
@@ -16,14 +25,19 @@
                 exit();
             }
         } 
-        $add = $_GET['from'];
+        if(isset($_GET['from'])){
+            $add = $_GET['from'];
+        }else{
+            $add = '';
+        }
         $action = $_POST["action"];
         if($action == 'add' || $add == 'home'){
             add_cart($idpro,$iduser,$count);
             header('location: index.php ');
         }
         if($action == 'bill'){
-
+            $count_add = $_POST['count_cart'];
+            header("location: index.php?act=bill&id_one_pro=$idpro&count_add=$count_add ");
         }
     }else{
         header('location: view/login.php');
