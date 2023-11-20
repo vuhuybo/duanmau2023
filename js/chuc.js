@@ -192,10 +192,94 @@ $('.count_cart').change( function(){
   xmlhttp.open("GET", "./index.php?act=addcart&count_cart="+count_cart +"&idpro=" + id_pro, true);
   xmlhttp.send();
 })
-$('.bye').on('click',function(){
-  const price = $('.bill-pro-subtotal').val();
-  console.log(price);
-  // const quatity = $('.')
+
+$('.delete-address').on('click', function(){
+  Swal.fire({
+      background: '#fff',
+      title: 'Bạn có chắc muốn xóa?',
+      text: "Bạn sẽ không thể lấy lại!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.open('view/address/delete_address.php?id=' + $(this).attr('data-id'))
+      }
+    })
+})
+$('.info_user-hoso').on('click',function(){
+  $('.right_info-info').css('display','block');
+  $('.right_info-address').css('display','none');
+  $('.right_info-orders').css('display','none');
+})
+$('.info_user-diachi').on('click',function(){
+  $('.right_info-info').css('display','none');
+  $('.right_info-orders').css('display','none');
+  $('.right_info-address').css('display','block');
+})
+$('.info_user-orders').on('click',function(){
+  $('.right_info-info').css('display','none');
+  $('.right_info-address').css('display','none');
+  $('.right_info-orders').css('display','block');
+})
+// $('.count_page').attr('page');
+$('.index_page').each(function (){
+  if($(this).attr('data-page') == $('.count_page').attr('page')){
+    $(this).addClass('page_active');
+  }
+});
+$('.delete_order').on('click',function(){
+  Swal.fire({
+    background: '#fff',
+    title: 'Bạn có chắc muốn xóa?',
+    text: "Bạn sẽ không thể lấy lại!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      window.open('index.php?act=delete_order&id_order=' + $(this).attr('data-id'))
+    }
+  })
+})
+$('.step0').slice(0,$('#progressbar').attr('count_status')).each(function(){
+  $(this).addClass('active');
+  var a = $('#progressbar').attr('date_status');
+})
+// xử lí số lượng trong chi tiết sản phẩm
+$('.detail_pro-color').on('change',function(){
+  var color  = $(this).val() ;
+   var a = $('.count_pro_cart').attr('data-quatyti');
+   var b = JSON.parse(a);
+   $.each(b,function(key,value){
+    console.log(value);
+    if( value.color === color ){
+      $('.count_pro_cart').attr('max',value.quatyti)
+    }
+   })
+})
+$('.btn_add_input').on('click',function(){
+  var div1 = $("<div>").addClass("input_input-container");
+  $(this).before(div1);
+  var input1 = $("<input>").attr("type", "text").attr("placeholder", "Nhập màu").addClass("custom-input").attr("name", "color[]").css('margin-bottom','5px');
+  var input2 = $("<input>").attr("type", "text").attr("placeholder", "Nhập số lượng").addClass("custom-input").attr("name", "soluong[]");
+
+  div1.append(input1, input2);  
 
 })
+$('.add_form_info').on('click',function(){
+  var div1 = $("<div>").addClass("item_input").css('margin','0 0 10px 0');
+  $(this).before(div1);
+  var input1 = $("<input>").attr("type", "text").attr("placeholder", "Nhập tên trường thông tin").addClass("custom-input").attr("name", "info[]").css('margin-bottom','5px');
+  var input2 = $("<input>").attr("type", "text").attr("placeholder", "Nhập thông tin").addClass("custom-input").attr("name", "description_sp[]");
+
+  div1.append(input1, input2);  
+
+})
+
+
 

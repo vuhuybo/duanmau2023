@@ -4,8 +4,8 @@
         $result = pdo_query($sql);
         return $result;
     }
-    function loadall_bl(){
-        $sql= "SELECT* from binhluan";
+    function loadall_bl($index,$soluong){
+        $sql= "SELECT* from binhluan limit $index,$soluong";
         $result = pdo_query($sql);
         return $result;
     }
@@ -17,4 +17,9 @@
     function dele_cmt($id){
         $sql = "DELETE FROM `binhluan` WHERE id=".$id;
         pdo_execute($sql);
+    }
+    function count_cmt(){
+        $sql = "SELECT COUNT(id) FROM binhluan";
+        $result = pdo_query($sql);
+        return $result;
     }

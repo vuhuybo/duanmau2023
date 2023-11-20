@@ -7,7 +7,6 @@
     include 'modal/user.php';
     include 'modal/bill.php';
     if(empty($_SESSION['uid'])){
-        // header('location: view/login.php');
         $islogin = 'Đăng nhập';
     }else{
         $islogin = 'Đăng xuất';
@@ -34,39 +33,91 @@
                     include 'view/addcart.php';
                     break;
                 case "shopall":
-                    if( (isset($_POST['keyw'])) || (isset($_POST['iddm'])) ){
+                    if( $_SERVER['REQUEST_METHOD'] == "POST" ){
                         $keyw  = $_POST['keyw'];
                         $iddm = $_POST['iddm'];
-                        $listsp = load_sp_dm($keyw,$iddm);
+                        $from_price = $_POST['from_price'];
+                        if(!empty($_POST['to_price'])){
+                            $to_price = $_POST['to_price'];
+                        }else{
+                            $to_price = 0;
+                        }
+                        $listsp = load_sp_dm($keyw,$iddm,$from_price,$to_price);
                     }else{
-                        $listsp = loadall_sp();
+                        if(isset($_GET['page'])){
+                            $index = $_GET['page'];
+                            $page_index = $_GET['page'];
+                        }else{
+                            $index = 1;
+                            $page_index = 1;
+                        }
+                        $index = ($index - 1 )*15;
+                        $listsp = loadall_sp($index,15);
                     }
                     include 'view/shopall.php';
                     break;
                 case "mobile":
                     if( (isset($_POST['keyw'])) ){
                         $keyw  = $_POST['keyw'];
-                        $listmobile = load_sp_dm($keyw,2);
+                        $from_price = $_POST['from_price'];
+                        if(!empty($_POST['to_price'])){
+                            $to_price = $_POST['to_price'];
+                        }else{
+                            $to_price = 0;
+                        }
+                        $listmobile = load_sp_dm($keyw,2,$from_price,$to_price);
                     }else{
-                        $listmobile = load_sp_dm('',2);
+                        if(isset($_GET['page'])){
+                            $index = $_GET['page'];
+                            $page_index = $_GET['page'];
+                        }else{
+                            $index = 1;
+                            $page_index = 1;
+                        }
+                        $index = ($index - 1 )*15;
+                        $listmobile = loadall_sp_dm(2,$index,15);
                     }
                     include 'view/mobile.php';
                     break;
                 case "laptop":
                     if( (isset($_POST['keyw'])) ){
                         $keyw  = $_POST['keyw'];
-                        $listlaptop = load_sp_dm($keyw,1);
+                        $from_price = $_POST['from_price'];
+                        if(!empty($_POST['to_price'])){
+                            $to_price = $_POST['to_price'];
+                        }else{
+                            $to_price = 0;
+                        }
+                        $listlaptop = load_sp_dm($keyw,1,$from_price,$to_price);
                     }else{
-                        $listlaptop = load_sp_dm('',1);
+                        if(isset($_GET['page'])){
+                            $index = $_GET['page'];
+                            $page_index = $_GET['page'];
+                        }else{
+                            $index = 1;
+                            $page_index = 1;
+                        }
+                        $index = ($index - 1 )*15;
+                        $listlaptop = loadall_sp_dm(1,$index,15);
                     }
                     include 'view/laptop.php';
                     break;
                 case "tablet":
                     if( (isset($_POST['keyw'])) ){
                         $keyw  = $_POST['keyw'];
-                        $listtablet = load_sp_dm($keyw,3);
+                        $from_price = $_POST['from_price'];
+                        $to_price = $_POST['to_price']; 
+                        $listtablet = load_sp_dm($keyw,3,$from_price,$to_price);
                     }else{
-                        $listtablet= load_sp_dm('',3);
+                        if(isset($_GET['page'])){
+                            $index = $_GET['page'];
+                            $page_index = $_GET['page'];
+                        }else{
+                            $index = 1;
+                            $page_index = 1;
+                        }
+                        $index = ($index - 1 )*15;
+                        $listtablet = loadall_sp_dm(3,$index,15);
                     }
                     include 'view/tablet.php';
                     break;
@@ -81,6 +132,9 @@
                     break;
                 case 'infouser':
                     include 'view/infouser.php';
+                    break;
+                case 'delete_order':
+                    include 'view/delete_order.php';
                     break;
             }
     

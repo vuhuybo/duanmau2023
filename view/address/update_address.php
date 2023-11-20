@@ -13,14 +13,27 @@
         $tinh = $_POST['tinh'];
         $detail_location = $_POST['detail_address'];
         $id_address = $_GET['id_address'];
+        if(isset($_POST['from'])){
+            $from = $_POST['from'];
+        }else{
+            $from = '';
+        }
         if(isset($_POST['check-default'])){
             $status = 'default';
             update_address_status();
             update_address($id_address,$name,$tel,$tinh,$detail_location,$_SESSION['uid'],$status);
-            header('location: ../../index.php?act=bill');
+            if($from == ''){
+                header('location: ../../index.php?act=bill');
+            }else{
+                header('location: ../../index.php?act=infouser');
+            }
         }else{
             $status = '';
             update_address($id_address,$name,$tel,$tinh,$detail_location,$_SESSION['uid'],$status);
-            header('location: ../../index.php?act=bill');
+            if($from == ''){
+                header('location: ../../index.php?act=bill');
+            }else{
+                header('location: ../../index.php?act=infouser');
+            }
         }
     }

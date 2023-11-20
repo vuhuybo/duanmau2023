@@ -38,9 +38,23 @@
                 <td><?php echo $iddm ?></td>
                 <td><?php echo $luotxem ?></td>
                 <td><?php echo $mota ?></td>
-                <td><?php echo $soluong ?></td>
+                <td>
+                    <?php foreach(json_decode($soluong) as $sl): ?>
+                    <span><?php echo $sl->color ?></span>
+                    <span><?php echo $sl->quatyti ?></span>
+                    <br>
+                    <?php endforeach; ?>
+                </td>
             </tr>
             <?php endforeach ?>
         </table>
+        <ul class="count_page" style="text-align: center;" page ="<?php echo $page_index ?>"> 
+            <?php
+             $quatity_pro = count_pro();
+             $count_page = ceil($quatity_pro[0]['COUNT(id)'] / 10);
+             for($i = 1;$i <= $count_page;$i ++): ?>
+                <li class="index_page" data-page = "<?php echo $i ?>" ><a href="index.php?act=sanpham&page=<?php echo $i ?>"><?php echo $i ?></a></li>
+            <?php endfor ?>
+        </ul>
     </div>
 </body>

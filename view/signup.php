@@ -5,12 +5,16 @@
     $err = [];
     if(isset($_GET['act']) && $_GET['act'] == 'signup'){
         if(isset($_POST['user']) && $_POST['user'] != ''){
-            $count = count_user($_POST['user']);
-            if($count[0]['COUNT(user)'] == 0 ){
-                $user = $_POST['user'];
-                $_SESSION['user'] = $user;
+            if(strlen($_POST['user']) >= 6){
+                $count = count_user($_POST['user']);
+                if($count[0]['COUNT(user)'] == 0 ){
+                    $user = $_POST['user'];
+                    $_SESSION['user'] = $user;
+                }else{
+                    $err['user'] = 'Tài khoản đã tồn tại';
+                }
             }else{
-                $err['user'] = 'Tài khoản đã tồn tại';
+                $err['user'] ='Tài khoản chưa đủ 6 kí tự';
             }
         }
         if(isset($_POST['pass']) && $_POST['pass'] != ''){
@@ -57,7 +61,7 @@
                 <h1>Đăng kí</h1>
             </div>
         <div class="input_signup">
-            <input type="text" name="user"  required placeholder="Tài khoản">
+            <input type="text" name="user" minlength="6" required placeholder="Tài khoản">
             <div class="err"><?php if(isset($err['user'])){ echo $err['user'];} ?></div>
         </div>
         <div class="input_signup">

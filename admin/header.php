@@ -18,6 +18,7 @@
                 <li><a href="<?php echo 'index.php?act=danhmuc' ?>">Danh sách danh mục</a></li>
                 <li><a href="<?php echo 'index.php?act=binhluan' ?>">Danh sách bình luận</a></li>
                 <li><a href="<?php echo 'index.php?act=user' ?>">Danh sách người dùng</a></li>
+                <li><a href="<?php echo 'index.php?act=order' ?>">Danh sách đơn hàng</a></li>
             </nav>
             <div class="loginhome">
                 <a href="../view/logout.php">Đăng xuất</a>

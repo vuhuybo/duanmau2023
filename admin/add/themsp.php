@@ -13,11 +13,7 @@
             $error['price'] = 'chưa nhập giá sản phẩm';
         }
         
-        if(isset($_POST['description_sp']) && $_POST['description_sp'] !== ''){
-            $mota = $_POST['description_sp'];
-        }else{
-            $error['discription'] = 'chưa nhập mô tả sản phẩm';
-        }
+        
         
         if(isset($_POST['iddm']) && $_POST['iddm'] !== ''){
             $iddm = $_POST['iddm'];
@@ -46,8 +42,35 @@
         }else{
             $error['no_file'] = 'chưa chọn file';
         }
+        // xử lý số lượng các màu sắc
+        $colors = $_POST['color'];
+        $soluong = $_POST['soluong'];
+        $quatyti  = [];
+        foreach($colors as $i => $color){
+            $quatyti[] = [
+                'color' => $color,
+                'quatyti' => $soluong[$i]
+            ];
+        }
+        $quatyti = json_encode($quatyti, JSON_UNESCAPED_UNICODE);
+        // xử lý thông tin sản phẩm
+        $info_pros = $_POST['info_pro'];
+        if(isset($_POST['description_sp']) && $_POST['description_sp'] !== ''){
+            $mota = $_POST['description_sp'];
+        }else{
+            $error['discription'] = 'chưa nhập mô tả sản phẩm';
+        }
+        $description  = [];
+        foreach($info_pros as $i => $info_pro){
+            $description[] = [
+                'name' => $info_pro,
+                'value' => $mota[$i]
+            ];
+        }
+        $description = json_encode($description, JSON_UNESCAPED_UNICODE);
+        var_dump($description);
         if(empty($error)){
-            add_sp($name, $price ,$new_file,$mota,$iddm);
+            add_sp($name, $price ,$new_file,$description,$iddm,$quatyti);
             echo '<div style="text-align: center; color: red; " class="div">thêm sản phẩm thành công</div>';
         }
     }
@@ -65,11 +88,6 @@
         <input type="number" min="0" name="gia_sp">
     </div>
     <div class="error"><?php if(isset($error['price']) && $error['price'] !== '' ){ echo $error['price']; } ?></div>
-    <div class="item_input">
-        <label for="">Mô tả sản phẩm</label>
-        <input type="text" name="description_sp">
-    </div>
-    <div class="error"><?php if(isset($error['discription']) && $error['discription'] !== '' ){ echo $error['discription']; } ?></div>
     <div class="item_input">
         <label for="">Loại sản phẩm</label>
         <select name="iddm" id="" >
@@ -95,7 +113,32 @@
         }
         ?>
     </div>
-    <div class="btn_form">
+    <div class="item_input">
+        <input type="text" style="border: none; background-color: #f0f0f0;" name="info_pro[]" value="Thông tin pin" readonly>
+        <input type="text" name="description_sp[]">
+    </div>
+    <div class="error"><?php if(isset($error['discription']) && $error['discription'] !== '' ){ echo $error['discription']; } ?></div>
+    <div class="item_input">
+        <input type="text" style="border: none; background-color: #f0f0f0;" name="info_pro[]" value="Thông tin màn hình" readonly>
+        <input type="text" name="description_sp[]">
+    </div>
+    <div class="error"><?php if(isset($error['discription']) && $error['discription'] !== '' ){ echo $error['discription']; } ?></div>
+    <div class="item_input">
+        <input type="text" style="border: none; background-color: #f0f0f0;" name="info_pro[]" value="Thông tin Ram" readonly>
+        <input type="text" name="description_sp[]">
+    </div>
+    <div class="error"><?php if(isset($error['discription']) && $error['discription'] !== '' ){ echo $error['discription']; } ?></div>
+    <div class="add_form_info">Thêm 1 thông tin trường khác </div>
+    
+    <div class="item_input " style="margin-bottom: 10px;">
+        <label for="">Số lượng các màu</label>
+        <div class="input_input">
+            <input type="text" name="color[]" placeholder="Nhập màu" style="margin-bottom: 5px;">
+            <input type="number" name="soluong[]" placeholder="Số lượng ">
+        </div>
+        <div class="btn_add_input" style="cursor: pointer; margin: 5px;">Thêm 1 màu</div>
+    </div>
+    <div class="btn_form " style="margin-bottom: 20px;">
         <input type="submit" value="Thêm">
         <input type="reset" value="Nhập lại">
     </div>

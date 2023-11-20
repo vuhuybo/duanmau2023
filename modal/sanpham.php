@@ -1,10 +1,20 @@
 <?php 
-    function loadall_sp(){
-        $sql = 'SELECT * from sanpham where 1 order by iddm desc';
+    function loadall_sp($index,$soluong){
+        $sql = 'SELECT * from sanpham where 1 order by iddm desc limit '.$index.','.$soluong;
         $result = pdo_query($sql);
         return $result;
     }
-    function load_sp_dm($keyw='',$iddm){
+    function loadall_sp_user(){
+        $sql = 'SELECT * from sanpham where 1 order by iddm desc ';
+        $result = pdo_query($sql);
+        return $result;
+    }
+    function loadall_sp_dm($iddm,$index,$soluong){
+        $sql = 'SELECT * from sanpham where iddm ='. $iddm.' order by iddm desc limit '.$index.','.$soluong;
+        $result = pdo_query($sql);
+        return $result;
+    }
+    function load_sp_dm($keyw='',$iddm,$from_price = 0,$to_price = 0){
         $sql = 'SELECT * from sanpham where 1';
         if(!empty($keyw)){
             $sql .= " and name like '%".$keyw."%'";
@@ -12,14 +22,30 @@
         if($iddm!=0){
             $sql .= " and iddm =".$iddm;
         }
+        if($to_price != 0){
+            $sql .= " and price between $from_price and $to_price";
+        }
         // $sql .= "order by id desc";
         $result = pdo_query($sql);
         return $result;
     }
-    function load_5sp_popular($iddm){
+    function count_pro(){
+        $sql = "SELECT COUNT(id) FROM sanpham";
+        $result = pdo_query($sql);
+        return $result;
+    }
+    function count_pro_dm($iddm){
+        $sql = "SELECT COUNT(id) FROM sanpham where iddm = $iddm";
+        $result = pdo_query($sql);
+        return $result;
+    }
+    function load_5sp_popular($iddm,$id_pro = ''){
         $sql = "SELECT * from sanpham where 1 ";
         if($iddm > 0){
             $sql .= " and iddm = ". $iddm ; 
+        }
+        if(!empty($id_pro)){
+            $sql .=' and id != '.$id_pro;
         }
         $sql .= " order by luotxem desc limit 0,5";
         $result = pdo_query($sql);
@@ -31,14 +57,14 @@
         $result = pdo_query_one($sql);
         return $result;
     }
-    function add_sp($name , $price , $img , $mota , $iddm){
-        $sql = "INSERT INTO `sanpham`( `name`, `price`, `img`, `mota`, `iddm`)
-        VALUE ('$name','$price','$img','$mota','$iddm')";
+    function add_sp($name , $price , $img , $mota , $iddm,$quatyti){
+        $sql = "INSERT INTO `sanpham`( `name`, `price`, `img`, `mota`, `iddm`,`soluong`)
+        VALUE ('$name','$price','$img','$mota','$iddm','$quatyti')";
         pdo_execute($sql);
     }
-    function edit_sp($id, $name , $price , $img , $mota , $iddm,$soluong){
+    function edit_sp($id, $name , $price , $img , $mota , $iddm,$quatyti){
         $sql = "UPDATE `sanpham` SET
-        `name`='$name',`price`='$price',`img`='$img',`mota`='$mota',`iddm`='$iddm',`soluong`='$soluong' WHERE id=".$id;
+        `name`='$name',`price`='$price',`img`='$img',`mota`='$mota',`iddm`='$iddm',`soluong`='$quatyti' WHERE id=".$id;
         pdo_execute($sql);
     }
     function delete_sp($id){

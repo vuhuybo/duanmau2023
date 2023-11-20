@@ -22,5 +22,13 @@
             </tr>
             <?php endforeach ?>
         </table>
+        <ul class="count_page" style="text-align: center;" page="<?php echo $page_index ?>"> 
+            <?php
+             $quatity_pro = count_cmt();
+             $count_page = ceil($quatity_pro[0]['COUNT(id)'] / 10);
+             for($i = 1;$i <= $count_page;$i ++): ?>
+                <li class="index_page" data-page = "<?php echo $i ?>" ><a href="index.php?act=binhluan&page=<?php echo $i ?>"><?php echo $i ?></a></li>
+            <?php endfor ?>
+        </ul>
     </div>
 </body>

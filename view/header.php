@@ -12,7 +12,8 @@
     <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
     <script src="js/chuc.js"></script>
-    <script src="js/slide.js"></script>
+
+
 </head>
 <body>
     <div class="container">
@@ -25,8 +26,9 @@
                 <li><a href="index.php?act=tablet">Tablet</a></li>
             </nav>
             <div class="loginhome">
-                <a href="view/logout.php"><?php echo $islogin ?></a>
                 <div class="cart" onclick="cart()"><i class="fa-solid fa-cart-shopping"></i></div>
+                <a href="index.php?act=infouser" class="presonal" style="padding-left: 15px;"><i class="fa-solid fa-user"></i></a>
+                <a href="view/logout.php"><?php echo $islogin ?></a>
             </div>
         </header>
        

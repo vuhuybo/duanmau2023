@@ -68,11 +68,16 @@ nav li a:hover{
 .cart i:hover{
     color: #855ff7;
 }
+.presonal i:hover{
+    color: #855ff7;
+}
 .slide{
     width: 100%;
     margin-top: 20px;
     position: relative;
-    height: 600px;
+    /* height: 600px; */
+    animation: ease 1s;
+    /* transition: ease 1s; */
     }
 .btn_slide-right{
     position: absolute;
@@ -92,16 +97,30 @@ nav li a:hover{
     transform: translateY(-50%);
     background: none;
 }
+@keyframes slideleft{
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+.slide {
+    animation: ease-in-out 2s;
+    transition: ease-in-out 2s;
+    overflow: hidden;
+}
 .slide i{
     color: white;
-    
 }
 .slide img{
     width: 80%;
     margin: auto;
     display: flex;
-   
+    overflow: hidden;
+    /* animation: slideleft ease-in-out 1s forwards; */
 }
+
 .list{
     width: 100%;
     background-color: #f0f0f0;
@@ -110,6 +129,7 @@ nav li a:hover{
     display: flex;
     width: 100%;
     flex-wrap: wrap;
+    justify-content: center;
 }
 .pro{
     width: 20%;
@@ -120,6 +140,7 @@ nav li a:hover{
 .list h1{
     font-size: 3vw;
     margin-top: 30px;
+    padding-top: 10px;
 }
 .pro img{
     width: 100%;
@@ -312,6 +333,7 @@ nav li a:hover{
     padding: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
+    gap: 35px;
 }
 .box_left{
     height: 600px;
@@ -346,16 +368,18 @@ nav li a:hover{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-right: 10%;
+    margin-right: 20%;
     & .radio{
-        display: flex;
-        align-items: center;
-        & span{
+    display: flex;
+    align-items: center;
+        &
+    span{
             text-align: center;
         }
-        & input{
+        &
+    input{
             width: 20px;
-            margin-right: 8px;
+    margin-right: 8px;
         }
     }
 }
@@ -389,13 +413,14 @@ nav li a:hover{
 .add_cart{
     background-color: white;
     height: 45px;
-    width: 150px;
+    /* width: 150px; */
     font-size: 15px;
     border-radius: 10px;
     border: 1px solid gray;
     margin-right: 20px;
     font-weight: 500;
     cursor: pointer;
+    padding: 0px 15px;
 }
 .add_cart:hover,.dungluong:hover{
     border: 1px solid #6e3ffb;
@@ -422,7 +447,8 @@ nav li a:hover{
 .sp_service{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    padding: 0 5%;
 }
 .item_sevice{
     display: flex;
@@ -431,7 +457,7 @@ nav li a:hover{
     background-color: #6e3ffb;
     color: #fff;
     height: 20px;
-    width: 20px;
+    width: 34px;
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -564,7 +590,29 @@ nav li a:hover{
     margin-bottom: 10px;
 }
 /* bảng sản phẩm của admin */
-
+.count_page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    margin-top: 10px;
+    & li{
+        padding: 10px;
+        /* background-color: aqua; */
+        margin: 2px;
+        cursor: pointer;
+        & a{        
+            text-decoration: none;
+        }
+    }
+}
+.page_active{
+    background-color: #855ff7;
+    & a{
+        text-decoration: none;
+        color: white;
+    }
+}
 .table_pro_admin{
     border: 1px gray solid;
     margin: auto;
@@ -705,9 +753,10 @@ form{
     width: 50%;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
     & select{
         width: 25%;
-        height: 20px;
+        height: 25px;
         font-size: 15px;
     }
     & input[type=text]{
@@ -725,6 +774,13 @@ form{
         font-size: 15px;
         padding: 5px 10px;
         cursor: pointer;
+    }
+    & input[type=number]{
+        height: 25px;
+        width: 20%;
+        border-radius: 10px;
+        padding-left: 10px;
+        border: 1px solid gray;
     }
 }
 /* cart */
@@ -1307,27 +1363,31 @@ form{
     & .left_info{
         padding: 20px;
         flex: 2;
-        background-color: aqua;
+        /* background-color: aqua; */
         box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
-
         & .left_info-info{
             display: flex;
-            background-color: plum;
             gap: 15%;
+            border-bottom: 1px solid gray;
+            padding-bottom: 15px;
             margin-bottom: 20px;
-            & img{
+            padding-top: 26px;
+            &
+            img{
                 height: 40px;
                 width: 40px;
+                border-radius: 50%;
             }
             & div{
                 & .left_info-name{
                     font-size: 18px;
                     font-weight: 500;
                 }
-                & span{
+                & a{
                     font-size: 15px;
                     font-weight: 300;
                     cursor: pointer;
+                    text-decoration: none;
                 }
             }
         }
@@ -1354,10 +1414,18 @@ form{
         & .left_info-orders{
             margin-bottom: 20px;
             font-size: 18px;
+            cursor: pointer;
+        }
+        & .left_info-orders:hover .left_info-orders>p{
+            color: #6e3ffb;
         }
         & .left_inof-vouchers{
             font-size: 18px;
             margin-bottom: 10px;
+            cursor: pointer;
+        }
+        & .left_inof-vouchers:hover .left_info-orders>p{
+            color: #6e3ffb;
         }
     }
     & .right_info{
@@ -1368,7 +1436,7 @@ form{
     & .right_info-info{
         padding: 10px;
         box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
-
+        
         & .right-info_header{
             border-bottom: 1px solid rgb(181, 181, 181);
             padding: 10px;
@@ -1430,4 +1498,273 @@ form{
             }
         }
     }
+    & .right_info-address{
+        display: none;
+        & .right_info-address_content{
+            & .address-header{
+                height: 10%;
+                /* padding: 20px */
+                /* margin-bottom: 20px; */
+                border-bottom: 1px solid gray;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 20px;
+                padding-bottom: 20px;
+                & .address-title{
+                font-weight: 500;
+                font-size: 30px;
+                }
+                &
+                button{
+                    background: #6e3ffb;
+                outline: none;
+                border: none;
+                padding: 5px 10px;
+                color: white;
+                border-radius: 10px;
+                cursor: pointer;
+                }
+            }
+            & .address-list{
+                height: 80%;
+                overflow: auto;
+                & .address-item{
+                    display: flex;
+                    justify-content: space-between;
+                    margin: 20px 10px;
+                    padding-bottom: 20px;
+                    border-bottom: 1px solid rgb(228, 227, 227);
+                    padding-left: 20px;
+                }
+                & .address-item-left{
+                    display: flex;
+                    align-items: center;
+                    & .address-item_cicrle{
+                        height: 15px;
+                        width: 15px;
+                        border: 1px gray solid;
+                        margin-right: 10px;
+                        border-radius: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        & .address-item_cicrle-checked{
+                            height: 6px;
+                            width: 6px;
+                            background-color: #6e3ffb;
+                            border-radius: 100%;
+                        }
+                    }
+                }
+                & .btn-update_address{
+                    & .address-item-right{
+                        color: #6e3ffb;
+                        font-size: 15px;
+                        cursor: pointer;
+                        padding: 5px;
+                    }
+                }
+            }
+        }
+    }
+    & .right_info-orders{
+        display: none;
+        & .right-info_header{
+            border-bottom: 1px solid rgb(181, 181, 181);
+            padding: 10px;
+            padding-top: 0px;
+            margin: 10px;
+            h1{
+                padding-bottom: 5px;
+            }
+        }
+        & .list_orders{
+            margin: 20px;
+            & .oder_item{
+                & .total_bill{
+                    text-align: center;
+                    font-size: 20px;
+                    color: #6e3ffb;
+                    margin: 20px;
+                    width: 100%;
+                }
+                & .detail_order{
+                    width: 200px;
+                    color: white;
+                    cursor: pointer;
+                    text-decoration: none;
+                }
+                
+                margin: 10 20px;
+                border-bottom: 1px solid gray;
+                & .order_item-id{
+                    padding: 10px;
+                    border-bottom: 1px dotted rgb(198, 198, 198);
+                }
+                & .order_item_listpro{
+                    padding-top: 10px;
+                    & .bill-header {
+                        display: flex;
+                        align-items: center;
+                        & :nth-child(4),:nth-child(2),:nth-child(3){
+                            color: gray;
+                            display: flex;
+                            justify-content: center;
+                        }
+                    }
+                    & .bill-pro-item{
+                        display: flex;
+                        margin: 10px 0;
+                        & div{
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+                        & :nth-child(1){
+                            justify-content: left;
+                            & img{
+                                margin-right: 5px;
+                            }
+                        }
+                
+                    }
+                    
+                }
+            }
+        }
+    }
+}
+/* tracking order */
+#progressbar {
+    margin-bottom: 3vh;
+    overflow: hidden;
+    color: #6e3ffb;
+    padding-left: 0px;
+    margin-top: 3vh
+}
+
+#progressbar li {
+    list-style-type: none;
+    font-size: 18px;
+    width: 25%;
+    float: left;
+    position: relative;
+    font-weight: 400;
+    color: rgb(160, 159, 159);
+}
+
+#progressbar #step1:before {
+    content: "";
+    color: #6e3ffb;
+    width: 5px;
+    height: 5px;
+    margin-left: 0px !important;
+    /* padding-left: 11px !important */
+}
+
+#progressbar #step2:before {
+    content: "";
+    color: #fff;
+    width: 5px;
+    height: 5px;
+    margin-left: 32%;
+}
+
+#progressbar #step3:before {
+    content: "";
+    color: #fff;
+    width: 5px;
+    height: 5px;
+    margin-right: 32% ; 
+    /* padding-right: 11px !important */
+}
+
+#progressbar #step4:before {
+    content: "";
+    color: #fff;
+    width: 5px;
+    height: 5px;
+    margin-right: 0px !important;
+    /* padding-right: 11px !important */
+}
+
+#progressbar li:before {
+    line-height: 29px;
+    display: block;
+    font-size: 12px;
+    background: #ddd;
+    border-radius: 50%;
+    margin: auto;
+    z-index: -1;
+    margin-bottom: 1vh;
+}
+
+#progressbar li:after {
+    content: '';
+    height: 2px;
+    background: #ddd;
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    margin-bottom: 2vh;
+    top: 1px;
+    z-index: 1;
+}
+.progress-track{
+    padding: 0 8%;
+}
+#progressbar li:nth-child(2):after {
+    margin-right: auto;
+}
+
+#progressbar li:nth-child(1):after {
+    margin: auto;
+}
+
+#progressbar li:nth-child(3):after {
+    float: left;
+    width: 68%;
+}
+#progressbar li:nth-child(4):after {
+    margin-left: auto;
+    width: 132%;
+}
+
+#progressbar  li.active{
+    color: black;
+}
+
+#progressbar li.active:before,
+#progressbar li.active:after {
+    background: #6e3ffb;
+}
+
+/* nút thêm form trong thêm mới và cập nhật sản phẩm  */
+.add_form_info{
+    color: #6e3ffb;
+    cursor: pointer;
+    margin-bottom: 10px;
+    text-align: center;
+    border: 1px solid gray;
+    background-color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    width: 50%;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 0;
+    margin-bottom: 15px;
+}
+.btn_add_input{
+    
+    color: #6e3ffb;
+    cursor: pointer;
+    border: 1px solid gray;
+    background-color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    padding-top: 5px;
 }

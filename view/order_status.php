@@ -3,15 +3,34 @@
         $id_order = $_GET['id_order'];
         $order = load_order($id_order);
         $list_pro =json_decode($order['product']);
+        $status = load_status_order($id_order);
+        $count_status = count($status);
+        $date_status = [];
+        foreach($status as $s){
+            $date_status[] = $s['date'];
+        }
+        $count_date = count($date_status);
     }
 ?>
+
+<section class="address">
+    <div class="progress-track">
+        <ul id="progressbar" count_status = "<?php echo $count_status ?>" date_status ="<?php var_dump($date_status); ?>">
+            <li class="step0 " status = "ordered" id="step1">Ordered  <?php if($count_date >=1) echo $date_status[0] ?></li>
+            <li class="step0 " style="text-align: center;"  id="step2">Shipped  <?php if($count_date >=2) echo $date_status[1] ?></li>
+            <li class="step0 " style="text-align: right;"  id="step3" >On the way  <?php if($count_date >=3) echo $date_status[2] ?></li>
+            <li class="step0 " style="text-align: right;"  id="step4" >Delivered  <?php if($count_date >=4) echo $date_status[3] ?></li>
+        </ul>
+    </div>
+</section>
+
 <section class="address">
             <h3>Địa chỉ nhận hàng</h3>
             <input type="text" value="<?php echo $order['id_address']; ?>" class="address-id" name="id_address" style="display: none;">
             <p class="address-name"><?php echo $order['name'] ?></p>
             <p class="tel-bill"><?php echo $order['tel'] ?></p>
             <p class="location"><?php echo $order['detail_location'].' , '.$order['tinh']; ?></p>
-        </section>
+</section>
 <section class="bill">
     <div class="bill-header">
         <div class="bill-header-item" style="flex: 6;">

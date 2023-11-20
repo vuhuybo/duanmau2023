@@ -1,9 +1,13 @@
 <div class="subject_admin">
-            <h1>Danh sách điện thoại</h1>
+            <h1>Danh sách tablet</h1>
         </div>
         <div style="margin: 20px 0;">
             <form action="index.php?act=tablet" method="post" class="form_search_sp">
                 <input type="text" name="keyw" placeholder="Nhập từ khóa">
+                <label for="" style="width: 15%;">Giá từ</label>
+                <input type="number" name="from_price" min="0" value="0" placeholder="Mức giá từ">
+                <label for="">Tới</label>
+                <input type="number" name="to_price" min="0" placeholder="Đến mức giá">
                 <input type="submit" value="Tìm kiếm">
             </form>
             <div class="listsp" style="margin-top: 20px;">
@@ -22,6 +26,14 @@
             <?php endforeach ?>
                 <!-- <div class="btn_more"><a href="">More Mobile Phone</a></div> -->
         </div>
+        <ul class="count_page" style="text-align: center;" page ="<?php echo $page_index ?>"> 
+            <?php
+            $quatity_pro = count_pro_dm(3);
+            $count_page = ceil($quatity_pro[0]['COUNT(id)'] / 15);
+            for($i = 1;$i <= $count_page;$i ++): ?>
+                <li class="index_page" data-page = "<?php echo $i ?>" ><a href="index.php?act=tablet&page=<?php echo $i ?>"><?php echo $i ?></a></li>
+            <?php endfor ?>
+        </ul>
         <div class="modal">
             <div class="overlay" onclick=""></div>
             <div class="modal_content">

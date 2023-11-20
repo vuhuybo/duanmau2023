@@ -1,3 +1,4 @@
+<script src="js/slide.js"></script>
 <div class="slide mb"> 
             <img width="690px" height="600px" id="banner" src="access/img/slide0.jpg" alt="">
             <button class="btn_slide-left">
@@ -6,6 +7,7 @@
             <button class="btn_slide-right">
                 <i class="fa-solid fa-angle-right icon_slide" onclick="next()"></i>
             </button>
+</div>    
     <div class="list mb">
             <h1 class="mb" style="margin: 40px;">Top 5 điện thoại nổi bật</h1>
         <div class="listsp">

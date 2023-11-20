@@ -5,6 +5,7 @@ include '../modal/binhluan.php';
 include '../modal/sanpham.php';
 include '../modal/user.php';
 include '../modal/danhmuc.php';
+include '../modal/bill.php';
 include 'header.php';
 if($_SESSION['role'] != 1){
     header('location: ../view/login.php');
@@ -18,12 +19,29 @@ if(isset($_GET['act']) && $_GET['act']!= ''){
                 $iddm = $_POST['iddm'];
                 $listsp = load_sp_dm($keyw,$iddm);
             }else{
-                $listsp = loadall_sp();
+                if(isset($_GET['page'])){
+                    $index = $_GET['page'];
+                    $page_index = $_GET['page'];
+                }else{
+                    $index = 1;
+                    $page_index = 1;
+                }
+                $index = ($index - 1 )*10;
+                $listsp = loadall_sp($index,10);
             }
             include 'sanpham.php';
             break;
         case 'binhluan':
-                $listbl = loadall_bl();
+                if(isset($_GET['page'])){
+                    $index = $_GET['page'];
+                    $page_index = $_GET['page'];
+                }else{
+                    $index = 1;
+                    $page_index = 1;
+                }
+                $index = ($index - 1 )*10;
+                $listbl = loadall_bl($index,10);
+                // $listbl = loadall_bl();
                 include 'binhluan.php';
                 break;    
         case 'danhmuc':
@@ -61,12 +79,25 @@ if(isset($_GET['act']) && $_GET['act']!= ''){
         case 'xoacmt':
             include 'delete/deletecmt.php';
             break;
+        case 'order':
+            include 'order.php';
+            break;
+        case 'editorder':
+            include 'edit/editorder.php';
+            break;
         }
-        
         
 
 }else{
-    $listsp = loadall_sp();
+    if(isset($_GET['page'])){
+        $index = $_GET['page'];
+        $page_index = $_GET['page'];
+    }else{
+        $index = 1;
+        $page_index = 1;
+    }
+    $index = ($index - 1 )*10;
+    $listsp = loadall_sp($index,10);
     include 'sanpham.php';
 }
 include 'footer.php';

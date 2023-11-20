@@ -33,6 +33,7 @@
                 <div class="bill-header-item" style="flex: 2;">Số lượng</div>
                 <div class="bill-header-item" style="flex: 2;">Thành tiền</div>
             </div>
+            <?php echo $_GET ?>
             <div class="bill-pro">
                     <?php if(isset($_GET['id_one_pro'])){
                         $id_one_pro = $_GET['id_one_pro'];
