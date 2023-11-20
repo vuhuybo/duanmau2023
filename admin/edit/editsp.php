@@ -174,7 +174,7 @@
             <input type="number" name="soluong[]" placeholder="Số lượng ">
         </div>
         <?php endif ?>
-        <div class="btn_add_input" style="cursor: pointer; margin: 5px;">Thêm 1 màu</div>
+        <div class="btn_add_input" style="cursor: pointer; margin: 5px;">Thêm 1 màu khác</div>
     </div>
     <div class="btn_form">
         <input type="submit" value="Sửa">
