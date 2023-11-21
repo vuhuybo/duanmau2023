@@ -6,21 +6,16 @@
         }else{
             $error['user'] = 'chưa nhập tên sản phẩm';
         } 
-
         if(isset($_POST['gia_sp']) && $_POST['gia_sp'] !== ''){
             $price = $_POST['gia_sp'];
         }else{
             $error['price'] = 'chưa nhập giá sản phẩm';
         }
-        
-        
-        
         if(isset($_POST['iddm']) && $_POST['iddm'] !== ''){
             $iddm = $_POST['iddm'];
         }else{
             $error['iddm'] = 'chưa nhập id danh mục';
         }
-        
         if(isset($_FILES['img']) && $_FILES['img'] !== ''){
             $file = $_FILES['img'];
             $filename = $file['name'];
@@ -136,7 +131,7 @@
             <input type="text" name="color[]" placeholder="Nhập màu" style="margin-bottom: 5px;">
             <input type="number" name="soluong[]" placeholder="Số lượng ">
         </div>
-        <div class="btn_add_input" style="cursor: pointer; margin: 5px;">Thêm 1 màu</div>
+        <div class="btn_add_input" style="cursor: pointer; margin: 5px;">Thêm 1 màu khác nữa</div>
     </div>
     <div class="btn_form " style="margin-bottom: 20px;">
         <input type="submit" value="Thêm">
@@ -144,8 +139,3 @@
     </div>
 </form>
 
-<?php 
-    // if(empty($error)){
-    //     echo '<div class="div">thêm sản phẩm thành công</div>';
-    // }
-?>

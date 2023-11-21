@@ -274,8 +274,8 @@ $('.btn_add_input').on('click',function(){
 $('.add_form_info').on('click',function(){
   var div1 = $("<div>").addClass("item_input").css('margin','0 0 10px 0');
   $(this).before(div1);
-  var input1 = $("<input>").attr("type", "text").attr("placeholder", "Nhập tên trường thông tin").addClass("custom-input").attr("name", "info[]").css('margin-bottom','5px');
-  var input2 = $("<input>").attr("type", "text").attr("placeholder", "Nhập thông tin").addClass("custom-input").attr("name", "description_sp[]");
+  var input1 = $("<input>").attr("type", "text").attr("placeholder", "Nhập tên trường thông tin").attr("name", "info_pro[]").css('margin-bottom','5px');
+  var input2 = $("<input>").attr("type", "text").attr("placeholder", "Nhập thông tin").attr("name", "description_sp[]");
 
   div1.append(input1, input2);  
 

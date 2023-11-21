@@ -77,7 +77,7 @@
         }
         $description = json_encode($description, JSON_UNESCAPED_UNICODE);
         if(empty($error)){
-            edit_sp($idsp, $name, $price ,$new_file,$mota,$iddm,$quatyti);
+            edit_sp($idsp, $name, $price ,$new_file,$description,$iddm,$quatyti);
             echo '<div style="text-align: center; color: red;">Sửa thành công</div>';
         }
     }
@@ -136,7 +136,7 @@
     if(is_array($motas)): ?>
     <?php foreach($motas as $mota): ?>
     <div class="item_input" style="margin: 10px 0;">
-        <input type="text" style="border: none; background-color: #f0f0f0;" name="info_pro[]" value="<?php echo $mota['name'] ?>" readonly>
+        <input type="text" style="border: none; background-color: #f0f0f0;" test = "1" name="info_pro[]" value="<?php echo $mota['name'] ?>" readonly>
         <input type="text" name="description_sp[]" value="<?php echo $mota['value'] ?>">
     </div>
     <?php endforeach ?>
@@ -174,7 +174,7 @@
             <input type="number" name="soluong[]" placeholder="Số lượng ">
         </div>
         <?php endif ?>
-        <div class="btn_add_input" style="cursor: pointer; margin: 5px;">Thêm 1 màu khác</div>
+        <div class="btn_add_input" style="cursor: pointer; margin: 5px;">Thêm 1 màu khác nữa</div>
     </div>
     <div class="btn_form">
         <input type="submit" value="Sửa">
