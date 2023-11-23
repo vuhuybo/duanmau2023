@@ -3,26 +3,45 @@ function detail_pro(id){
     document.querySelector(".modal").style = "display:flex;"
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
+      if(xmlhttp.readyState === 4){
         var a = this.responseText;
         b = json_parse(a);
         $('.namedetail').html(b.name);
         $('.pricedetail').html(formatMoney(parseInt(b.price)));
         $('.imgdetail').attr('src','upload/'+b.img);
-        // console.log('1');
-        var des = (b.mota).split('.')
-        $('.des_manhinh').html(des[0]);
-        $('.des_chip').html(des[1]);
-        $('.des_bonho').html(des[2]);
-        $('.des_pin').html(des[3]);
-        console.log(b.id);
+        var c = json_parse(b.mota);
+        $.each(c,function(key,value){
+          if(parseInt(key) < 4){
+            if(parseInt(key) % 2 === 0){
+              var newRow = $("<tr>");
+              var cell1 = $("<td>").text(value.name);
+              var cell2 = $("<td>").text(value.value);
+              newRow.append(cell1, cell2);
+            }else{
+              var newRow = $("<tr>").addClass('tr');
+              var cell1 = $("<td>").text(value.name);
+              var cell2 = $("<td>").text(value.value);
+              newRow.append(cell1, cell2);
+            }
+            $('.table_detailpro').append(newRow);
+          }
+        })
+        var d = json_parse(b.soluong);
+        console.log(d);
+        $.each(d,function(key,value){
+          var newOption = $("<option>").attr('value',value.color).text(value.color);
+          $('.select_color_detailpro').append(newOption);
+        })
         $('.them_cart').attr('href','index.php?act=addcart&idpro='+b.id+'&from=home');
-        console.log(des[0]);
+      }
     };
     xmlhttp.open("GET", "./index.php?act=sp&id=" + id, true);
     xmlhttp.send();
 }
 function undetail_pro(){
     $('.modal').css('display','none');
+    $('.table_detailpro').empty();
+    $('.select_color_detailpro').empty();
 }
 
 function json_parse(str){
@@ -256,7 +275,6 @@ $('.detail_pro-color').on('change',function(){
    var a = $('.count_pro_cart').attr('data-quatyti');
    var b = JSON.parse(a);
    $.each(b,function(key,value){
-    console.log(value);
     if( value.color === color ){
       $('.count_pro_cart').attr('max',value.quatyti)
     }

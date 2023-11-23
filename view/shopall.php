@@ -37,11 +37,10 @@
                     <li class="index_page" data-page = "<?php echo $i ?>" ><a href="index.php?act=shopall&page=<?php echo $i ?>"><?php echo $i ?></a></li>
                 <?php endfor ?>
             </ul>
-                <!-- <div class="btn_more"><a href="">More Mobile Phone</a></div> -->
         </div>
         <div class="modal">
-            <div class="overlay" onclick=""></div>
-            <div class="modal_content">
+            <div class="overlay" onclick="undetail_pro()"></div>
+            <div class="modal_content" style="height: auto;">
                 <div class="close" onclick="undetail_pro()">
                     <i class="fa-solid fa-x"></i>
                 </div>
@@ -49,39 +48,17 @@
                 <div class="detail_pro">
                     <div class="namedetail mb50">ss</div>
                     <div class="pricedetail mb50">1000$</div>
-                    <div class="dungluong mb50"> Dung lượng: 128GB</div>
                     <div class="description_pro mb50">
                         <p>Thông số kĩ thuật</p>
-                        <table>
-                        <tr class="tr">
-                            <td>Màn hình</td>
-                            <td class="des_manhinh">6.1 inches</td>
-                        </tr>
-                        <tr >
-                            <td>Công nghệ chip</td>
-                            <td class="des_chip">Super Retina XDR OLED</td>
-                        </tr>
-                        <tr class="tr">
-                            <td>Bộ nhớ</td>
-                            <td class="des_bonho"> </td>
-                        </tr>
-                        <tr>
-                            <td>Pin</td>
-                            <td class="des_pin">3240mAh</td>
-                        </tr>
-                        
-                    </table>
+                        <table class="table_detailpro">
+                        </table>
                     </div>
                     <div class="color mb50">
-
                         <p for="">Màu sắc</p>
-                        <select name="" id="">
-                            <option value="red">Đỏ</option>
-                            <option value="gray">Xám</option>
-                            <option value="gold">Vàng</option>
+                        <select name="" id="" class="select_color_detailpro">
                         </select>
                     </div>
-                    <a class="add_btn them_cart" href="" style="opacity: 1;margin-top: 10px; margin-right: 90px;">Add to cart</a>
+                    <a class="add_btn them_cart" href="" style="opacity: 1;margin-top: 10px; margin-right: 90px; margin-bottom: 20px;">Add to cart</a>
                 </div>
             </div>
         </div>

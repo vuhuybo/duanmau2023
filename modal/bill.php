@@ -65,6 +65,8 @@
     function delete_order($id_order ){
         $sql = "DELETE FROM `order` where id=$id_order";
         pdo_execute($sql);
+        $sql1 = "DELETE FROM `order_status` where id=$id_order";
+        pdo_query($sql1);
     }
     function count_order(){
         $sql = "SELECT COUNT(id) from `order`";

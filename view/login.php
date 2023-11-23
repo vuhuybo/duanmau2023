@@ -10,7 +10,7 @@
             if($user){
                 if(isset($_POST['password']) && $_POST['password'] != ''){
                     $password = $_POST['password'];               
-                    if(password_verify($password,$user['pass'])){
+                    if(password_verify($password,$user['pass']) && $user['code_verify'] == 0){
                         $_SESSION['uid'] = $user['id'];
                         $_SESSION['role'] = $user['role'];
                         if($user['role'] == 2){
@@ -49,7 +49,7 @@
         <form action="login.php?act=login" method="post" class="login" >
             <div class="title">
                 <h1>Đăng nhập</h1>
-                <a href="signup.php">Đăng kí</a>
+                <a href="register/signup.php">Đăng kí</a>
             </div>
             <div class="input_login">
                 <input type="text" name="username" require placeholder="Tài khoản">
@@ -60,7 +60,7 @@
                 <div class="err_login"><?php if(isset($err['pass']) && $err['pass'] != ''){ echo $err['pass'];} ?></div>
             </div>
             <input type="submit" class="btn_more" value="Đăng nhập">
-            <a href="">Quên mật khẩu</a>
+            <a href="forget_pass/forget_pass.php">Quên mật khẩu</a>
         </form>
     <!-- </div> -->
 </body>

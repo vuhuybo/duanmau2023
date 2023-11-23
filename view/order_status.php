@@ -4,22 +4,33 @@
         $order = load_order($id_order);
         $list_pro =json_decode($order['product']);
         $status = load_status_order($id_order);
-        $count_status = count($status);
-        $date_status = [];
-        foreach($status as $s){
-            $date_status[] = $s['date'];
+        if($status){
+            if(!isset($status[0])){
+                $count_status = 1;
+                $date_status[] = $status['date'];
+                $count_date = 1;
+            }else{
+                $count_status = count($status);
+                $date_status = [];
+                foreach($status as $s){
+                    $date_status[] = $s['date'];
+                }
+                $count_date = count($date_status);
+            }
+        }else{
+            $count_status = 0;
+            $count_date = 0;
         }
-        $count_date = count($date_status);
     }
 ?>
 
 <section class="address">
     <div class="progress-track">
         <ul id="progressbar" count_status = "<?php echo $count_status ?>" date_status ="<?php var_dump($date_status); ?>">
-            <li class="step0 " status = "ordered" id="step1">Ordered  <?php if($count_date >=1) echo $date_status[0] ?></li>
-            <li class="step0 " style="text-align: center;"  id="step2">Shipped  <?php if($count_date >=2) echo $date_status[1] ?></li>
-            <li class="step0 " style="text-align: right;"  id="step3" >On the way  <?php if($count_date >=3) echo $date_status[2] ?></li>
-            <li class="step0 " style="text-align: right;"  id="step4" >Delivered  <?php if($count_date >=4) echo $date_status[3] ?></li>
+            <li class="step0 " status = "ordered" id="step1">Ordered  <?php if($count_date >=1) echo 'in '.$date_status[0] ?></li>
+            <li class="step0 " style="text-align: center;"  id="step2">Shipped  <?php if($count_date >=2) echo 'in '.$date_status[1] ?></li>
+            <li class="step0 " style="text-align: right;"  id="step3" >On the way  <?php if($count_date >=3) echo 'in '.$date_status[2] ?></li>
+            <li class="step0 " style="text-align: right;"  id="step4" >Delivered  <?php if($count_date >=4) echo 'in '.$date_status[3] ?></li>
         </ul>
     </div>
 </section>
