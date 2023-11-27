@@ -12,12 +12,32 @@
     <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
     <script src="js/chuc.js"></script>
-
+    <style>
+        .logo{
+            background-color: #fff;
+            text-align: center;
+            padding-top: 20px;
+            font-size:30px; 
+            margin-left:100px; 
+        
+            }
+    
+        .logo a{
+            text-decoration: none;
+        }
+        .logo a:hover{
+            color: #855ff7;
+            transition: 0.4s;
+        }
+    </style>
 
 </head>
 <body>
     <div class="container">
         <header>
+            <div class="logo">
+            <a href="index.php?act=home">LUXURY</a>
+            </div>
             <nav>
                 <li><a href="index.php?act=home">Home</a></li>
                 <li><a href="index.php?act=shopall">Shop all</a></li>
